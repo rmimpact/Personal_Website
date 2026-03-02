@@ -303,6 +303,8 @@ body {
 
 .hero {
   padding: 2rem;
+  background-image: url(media/dark_bricks.png);
+
 }
 
 .hero__inner {
@@ -346,7 +348,6 @@ body {
 }
 
 article {
-  background: white;
   width: 300px;
   padding: 20px;
   position: relative;
@@ -364,3 +365,4 @@ article::after {
 }
 
 /*-------------------*/
+
