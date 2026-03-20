@@ -7,10 +7,10 @@ body {
 
     /* Background pattern */
     background-color: #ffffff;
-    background-image: radial-gradient(#4c9494 1.6px, transparent 1.6px),
-                      radial-gradient(#4c9494 1.6px, #ffffff 1.6px);
-    background-size: 64px 64px;
-    background-position: 0 0, 32px 32px;
+    background-image: radial-gradient(#4c9494 1.2px, transparent 1px),
+                      radial-gradient(#4c9494 1.2px, #ffffff 1px);
+    background-size: 38px 38px;
+    background-position: 0 0, 19px 19px;
 }
 
 /* Global heading styles */
