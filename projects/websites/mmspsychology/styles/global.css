@@ -1,0 +1,52 @@
+/* Global styles (used across ALL pages) */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+
+    /* Background pattern */
+    background-color: #ffffff;
+    background-image: radial-gradient(#4c9494 1.6px, transparent 1.6px),
+                      radial-gradient(#4c9494 1.6px, #ffffff 1.6px);
+    background-size: 64px 64px;
+    background-position: 0 0, 32px 32px;
+}
+
+/* Global heading styles */
+h1, h2, h3 {
+    color: #234040;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Global paragraph styles */
+p {
+    color: #3d5555;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .home-hero {
+        padding: 36px 16px 56px;
+    }
+
+    .profile-image-wrapper {
+        width: min(72vw, 360px);
+        margin-bottom: 24px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 9vw, 3.4rem);
+    }
+
+    .info-section {
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    .info-card {
+        padding: 30px 24px;
+        border-radius: 24px;
+    }
+}

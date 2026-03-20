@@ -14,11 +14,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  color: #333;
-  background: #a7a7a7; /* used by ripped-paper demo */
+  color: white;
+  background: #ffffff; /* used by ripped-paper demo */
 }
 
 /* ==========================
@@ -65,7 +70,7 @@ nav ul li a {
 
 a.active,
 a:hover {
-  background: #1b9bff;
+  background: hsl(180, 30%, 45%);
   color: #fff;
   transition: 0.5s;
 }
@@ -127,7 +132,7 @@ a:hover {
   a:hover,
   a.active {
     background: none;
-    color: #0082e6;
+    color: hsl(180, 30%, 45%);
   }
 
   #check:checked ~ ul {
@@ -139,8 +144,10 @@ a:hover {
    Hero section
    ========================== */
 .hero {
-  padding: 2rem;
   background-image: url("media/dark_bricks.png");
+
+  position: relative; /* creates stacking context */
+  z-index: 1;         /* sits behind the article card */
 }
 
 .hero__inner {
@@ -163,7 +170,9 @@ a:hover {
 .hero__text h1 {
   margin: 0;
   line-height: 1.05;
+  color: white;
 }
+
 
 /* Phone: stack */
 @media (max-width: 700px) {
@@ -180,17 +189,37 @@ a:hover {
    (applies to the <article> inside hero)
    ========================== */
 article {
-  max-width: 900px;     /* readable line length on desktop */
-  width: 100%;          /* allows it to fill on mobile */
-  margin: 0 auto;       /* centres the article block */
+  /* Adjust this value to move the ripped-paper card up/down */
+  --article-offset-y: -60px; /* try -20px to -120px */
+
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
   padding: 20px;
+
   position: relative;
+  z-index: 2;          /* ensures card sits above hero */
+  background: #ffffff; /* IMPORTANT: actual paper colour */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  transform: translateY(var(--article-offset-y));
+}
+
+article::before {
+  content: "";
+  position: absolute;
+  top: 20px;           /* sits above the top edge */
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/23618/rip.svg") top;
+  background-size: 200%;
 }
 
 article::after {
   content: "";
   position: absolute;
-  top: 1%;
+  bottom: -20px;        /* sits below the bottom edge */
   left: 0;
   width: 100%;
   height: 20px;

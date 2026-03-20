@@ -1,0 +1,139 @@
+.home-hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px 72px;
+    clear: both;
+}
+
+.hero-content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image-wrapper {
+    width: clamp(220px, 30vw, 380px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    margin-bottom: 28px;
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-text {
+    width: 100%;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.05;
+    margin: 0;
+}
+
+.info-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 40px;
+    align-self: stretch;
+}
+
+.info-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 28px;
+    padding: 40px 56px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(35, 64, 64, 0.10);
+    backdrop-filter: blur(6px);
+}
+
+.info-card h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin: 0 0 18px;
+}
+
+.info-card p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin: 0;
+}
+
+
+.appointments-page .hero-text {
+    margin-bottom: 36px;
+}
+
+.appointments-grid {
+    gap: 32px;
+}
+
+.appointment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.map-card {
+    width: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(35, 64, 64, 0.10);
+}
+
+.map-card iframe {
+    width: 100%;
+    height: 360px;
+    border: 0;
+    display: block;
+}
+
+.book-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: #4c9494;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 10px 22px rgba(76, 148, 148, 0.25);
+}
+
+.book-button:hover {
+    background: #3f8080;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(76, 148, 148, 0.3);
+}
+
+@media (max-width: 768px) {
+    .appointments-page .hero-text {
+        margin-bottom: 28px;
+    }
+
+    .map-card iframe {
+        height: 300px;
+    }
+
+    .book-button {
+        width: 100%;
+        min-width: 0;
+    }
+}
