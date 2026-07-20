@@ -7,8 +7,8 @@
     "year": "2025",
     "image": "/projects/websites/mmspsychology/media/metagraph.png",
     "imageAlt": "MMS Psychology social preview featuring the Sam Mary Moscovitz logo on white brick",
-    "summary": "A clear, welcoming website for a psychology practice, built around services, practical information and a simple booking path.",
-    "description": "I designed and built this practice website to make important information easy to find and the next step easy to take. The project brings together responsive layout, consistent visual design, service and fee information, and a direct booking experience.\n\nThe live preview below is the real website, embedded inside this portfolio so the work can be explored without leaving the project page.",
+    "summary": "A website I built for my mum’s psychology practice, including service information, fees and online booking.",
+    "description": "I built this website for my mum’s psychology practice. The main goal was to make the important information easy to find and give clients a straightforward way to book an appointment.\n\nYou can use the live site below without leaving this page.",
     "tags": ["HTML", "CSS", "Responsive web"],
     "preview": {
       "type": "iframe",
@@ -30,8 +30,8 @@
     "year": "2025",
     "image": "/media/projects/football-management-preview.jpg",
     "imageAlt": "Football Management Panel application interface running beside the Java project workspace",
-    "summary": "A Java desktop project exploring football team management, application state and multi-screen interface design.",
-    "description": "This project brought a football-management concept into a working Java application. It was an opportunity to organise multiple screens, model information cleanly, and think about how users move through a more substantial desktop interface.\n\nIt also represents an important step from small exercises toward software with a broader structure and a recognisable product experience.",
+    "summary": "A Java desktop application for managing football teams and players.",
+    "description": "I built this as a Java project to practise working with multiple screens, application state and a larger codebase. It includes a management interface for football teams and players.\n\nMost of the work was about getting the different parts of the program to work together while keeping the interface understandable.",
     "tags": ["Java", "Desktop UI", "Application design"],
     "preview": {
       "type": "image"
@@ -48,13 +48,13 @@
     "id": "filedrop",
     "order": 3,
     "title": "FileDrop",
-    "eyebrow": "GitHub project",
+    "eyebrow": "Cross-platform file sharing",
     "year": "2026",
-    "image": "https://opengraph.githubassets.com/1/rmimpact/FileDrop",
-    "imageAlt": "GitHub social preview for the FileDrop repository",
-    "summary": "A file-focused software project in active development, built in public and documented through GitHub.",
-    "description": "FileDrop is one of my current software projects and a place to keep developing the way I plan, build and refine an idea in public.\n\nThe repository is the source of truth for the project while it evolves. The banner uses GitHub’s own link-preview image and falls back to a neutral local treatment if that image is unavailable.",
-    "tags": ["Software project", "GitHub", "In development"],
+    "image": "/media/projects/filedrop-banner.png",
+    "imageAlt": "FileDrop parachute logo on a sky-blue background",
+    "summary": "A tool for sharing files between Mac and Windows computers over the same Wi-Fi network.",
+    "description": "FileDrop lets you send files between Mac and Windows computers when they’re connected to the same Wi-Fi network. I started it because moving files between the two platforms is more annoying than it should be.\n\nThe project is still in development. The latest code and progress are on GitHub.",
+    "tags": ["macOS", "Windows", "Wi-Fi file transfer"],
     "preview": {
       "type": "image"
     },
