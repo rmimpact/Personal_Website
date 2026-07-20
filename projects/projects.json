@@ -1,23 +1,69 @@
 [
   {
-    "id": "football-management-panel",
+    "id": "mms-psychology",
     "order": 1,
-    "title": "Football Management Pannel",
-    "image": "JavaProjects/ManagementPannel/Media/minibanner.gif",
-    "category": "java"
+    "title": "MMS Psychology",
+    "eyebrow": "Live client website",
+    "year": "2025",
+    "image": "/projects/websites/mmspsychology/media/metagraph.png",
+    "imageAlt": "MMS Psychology social preview featuring the Sam Mary Moscovitz logo on white brick",
+    "summary": "A clear, welcoming website for a psychology practice, built around services, practical information and a simple booking path.",
+    "description": "I designed and built this practice website to make important information easy to find and the next step easy to take. The project brings together responsive layout, consistent visual design, service and fee information, and a direct booking experience.\n\nThe live preview below is the real website, embedded inside this portfolio so the work can be explored without leaving the project page.",
+    "tags": ["HTML", "CSS", "Responsive web"],
+    "preview": {
+      "type": "iframe",
+      "url": "https://mmspsychology.com/"
+    },
+    "links": [
+      {
+        "label": "Open live website ↗",
+        "url": "https://mmspsychology.com/",
+        "primary": true
+      }
+    ]
   },
   {
-    "id": "uts-room-booking-helper",
+    "id": "football-management-panel",
     "order": 2,
-    "title": "UTS Room Booking Helper",
-    "image": "",
-    "category": "web"
+    "title": "Football Management Panel",
+    "eyebrow": "Java application",
+    "year": "2025",
+    "image": "/media/projects/football-management-preview.jpg",
+    "imageAlt": "Football Management Panel application interface running beside the Java project workspace",
+    "summary": "A Java desktop project exploring football team management, application state and multi-screen interface design.",
+    "description": "This project brought a football-management concept into a working Java application. It was an opportunity to organise multiple screens, model information cleanly, and think about how users move through a more substantial desktop interface.\n\nIt also represents an important step from small exercises toward software with a broader structure and a recognisable product experience.",
+    "tags": ["Java", "Desktop UI", "Application design"],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "Download project",
+        "url": "/projects/JavaProjects/ManagementPannel/ManagementPannel.zip",
+        "primary": true
+      }
+    ]
   },
   {
-    "id": "js-password-generator",
+    "id": "filedrop",
     "order": 3,
-    "title": "JavaScript Password Generator",
-    "image": "",
-    "category": "javascript"
+    "title": "FileDrop",
+    "eyebrow": "GitHub project",
+    "year": "2026",
+    "image": "https://opengraph.githubassets.com/1/rmimpact/FileDrop",
+    "imageAlt": "GitHub social preview for the FileDrop repository",
+    "summary": "A file-focused software project in active development, built in public and documented through GitHub.",
+    "description": "FileDrop is one of my current software projects and a place to keep developing the way I plan, build and refine an idea in public.\n\nThe repository is the source of truth for the project while it evolves. The banner uses GitHub’s own link-preview image and falls back to a neutral local treatment if that image is unavailable.",
+    "tags": ["Software project", "GitHub", "In development"],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "View FileDrop on GitHub ↗",
+        "url": "https://github.com/rmimpact/FileDrop",
+        "primary": true
+      }
+    ]
   }
 ]

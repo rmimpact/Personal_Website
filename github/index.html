@@ -1,103 +1,17 @@
-<!DOCTYPE html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website in progress...">
-    <meta name="keywords" content="remym, moscovitz, remymoscovitz, rmoscovitz">
-    <link rel="icon" href="../media/rm_custom_icon.png" type="image/png">
-    <title>GitHub</title>
-    <meta property="og:title" content="Remy Mosvitz" />
-    <meta property="og:description" content="Wesite in progress..." />
-    <meta property="og:image" content="../media/rm_custom_icon.png" />
-    <meta property="og:url" content="remymoscovitz.com" />
-    <html lang="en">
-    <link href="../styles/hamburger.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=https://github.com/rmimpact">
+  <link rel="stylesheet" href="/styles/site.css">
+  <title>GitHub — Remy Moscovitz</title>
 </head>
-
-<body onload="fadeIn()">
-    <div class="top_fade"> <img src="../media/white_nav_icon.png" class="top-right-logo"></div>
-    <div id="mySidenav" class="sidenav">
-        <a href="../home/index.html">Home</a>
-        <a href="contact.html">LinkedIn</a>
-        <a href="../projects/index.html">Projects</a>
-        <a href="../contact/index.html">Contact</a>
-        <a href="#">About</a>
-    </div>
-    <div style="position: fixed; z-index:3;">
-        <div class="name"></div>
-        <div class="hamburger hamburger--minus js-hamburger">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Look for .hamburger
-        var hamburger = document.querySelector(".hamburger");
-        var isOpen = false; // Track the state of the menu
-
-        // On click
-        hamburger.addEventListener("click", function () {
-            // Toggle class "is-active"
-            hamburger.classList.toggle("is-active");
-
-            // Check if the menu is currently open or closed
-            if (isOpen) {
-                closeNav();
-            } else {
-                openNav();
-            }
-
-            // Toggle the state
-            isOpen = !isOpen;
-        });
-
-        
-
-        function fadeIn() {
-            document.getElementById("main").style.opacity = "1";
-            document.getElementById("main").style.marginTop = "0px";
-
-        }
-
-        
-
-
-
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
-    <div id="main">
-        <div id="fadeIn">
-        <div class="spacer"></div>
-        <h2>GitHub</h2>
-        <p>Here you can find some university and high school projects I have completed.</p>
-        <div class="project-container">
-
-            <div class="project-box">
-                <img class="card-baner" src="/media/projects/prog2managementpanel/card-banner.gif" alt="error loading">
-                <h3>Hello, box 1</h3>
-
-            </div>
-
-            <div class="project-box">
-                <h3>Hello, box 2</h3>
-            </div>
-
-            <div class="project-box">
-                <h3>Hello, box 3</h3>
-            </div>
-        </div>
-        </div>
-    </div>
+<body class="redirect-page">
+  <main class="redirect-card">
+    <p class="eyebrow">GitHub</p>
+    <h1>Taking you to my current work.</h1>
+    <a class="button button--primary" href="https://github.com/rmimpact">Open GitHub</a>
+  </main>
 </body>
-
 </html>

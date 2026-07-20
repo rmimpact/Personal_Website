@@ -1,135 +1,46 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Project Info</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f5f5f5;
-    }
-
-    .wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 20px 24px;
-      border-radius: 12px;
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 16px;
-      text-decoration: none;
-      color: #007acc;
-      font-size: 14px;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
-    .project-title {
-      margin-top: 0;
-      font-size: 28px;
-    }
-
-    .project-image {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 16px 0;
-      border-radius: 8px;
-    }
-
-    .meta {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 16px;
-    }
-
-    .content {
-      white-space: pre-wrap; /* will be useful later if you load text/markdown-ish content */
-      line-height: 1.6;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project details from the software engineering portfolio of Remy Moscovitz.">
+  <meta name="theme-color" content="#060817">
+  <link rel="icon" href="/media/rm_custom_icon.png" type="image/png">
+  <title>Project — Remy Moscovitz</title>
+  <link rel="stylesheet" href="/styles/site.css">
+  <script src="/script.js" defer></script>
 </head>
 <body>
-  <div class="wrapper">
-    <a href="index.html" class="back-link">← Back to all projects</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="/" aria-label="Remy Moscovitz — home">
+      <img src="/media/white_nav_icon.png" alt="" width="44" height="44">
+      <span>Remy Moscovitz</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <span class="sr-only">Open navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-site-nav>
+      <a href="/#about">About</a>
+      <a href="/projects/" aria-current="page">Work</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
 
-    <h1 class="project-title" id="project-title">Loading...</h1>
-    <p class="meta" id="project-meta"></p>
-    <img id="project-image" class="project-image" style="display:none;" alt="">
+  <main id="main-content" class="project-detail section-shell">
+    <a class="back-link" href="/projects/"><span aria-hidden="true">←</span> All projects</a>
+    <article data-project-detail aria-live="polite">
+      <p class="eyebrow">Loading project</p>
+      <h1>Preparing the preview…</h1>
+    </article>
+  </main>
 
-    <div class="content" id="project-content">
-      <!-- Later we can load text/markdown-like content from a .txt/.md file -->
-      This is a placeholder. Soon this area will show per-project details, demo links, etc.
-    </div>
-  </div>
-
-  <script>
-    // Get ?id=... from the URL
-    var params = new URLSearchParams(window.location.search);
-    var projectId = params.get('id');
-
-    // Simple guard if no id given
-    if (!projectId) {
-      document.getElementById('project-title').textContent = 'No project selected';
-      document.getElementById('project-content').textContent =
-        'Open this page via a project card so I know which project to show.';
-
-    } else {
-      // Load projects.json and find the matching project
-      fetch('projects.json')
-        .then(function(response) {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(function(projects) {
-          var project = projects.find(function(p) {
-            return p.id === projectId;
-          });
-
-          if (!project) {
-            document.getElementById('project-title').textContent = 'Project not found';
-            document.getElementById('project-content').textContent =
-              'I couldn\'t find a project with id: ' + projectId;
-            return;
-          }
-
-          // Set title
-          document.getElementById('project-title').textContent = project.title || 'Untitled project';
-
-          // Optional meta line – for now just show the id
-          document.getElementById('project-meta').textContent = 'ID: ' + project.id;
-
-          // Show image if one exists
-          if (project.image) {
-            var imgEl = document.getElementById('project-image');
-            imgEl.src = project.image;
-            imgEl.alt = project.title || '';
-            imgEl.style.display = 'block';
-          }
-
-          // Placeholder content for now
-          // Later we can load external .txt/.md per project here
-          document.getElementById('project-content').textContent =
-            'Coming soon: detailed info about ' + project.title +
-            '.\n\nThis is where your markdown-like text, demo video link, etc. will go.';
-        })
-        .catch(function(error) {
-          console.error('Error loading projects.json:', error);
-          document.getElementById('project-title').textContent = 'Error';
-          document.getElementById('project-content').textContent =
-            'There was a problem loading the project data.';
-        });
-    }
-  </script>
+  <footer class="site-footer section-shell">
+    <p>© <span data-current-year></span> Remy Moscovitz</p>
+    <p><a href="/projects/">Project index</a></p>
+  </footer>
 </body>
 </html>

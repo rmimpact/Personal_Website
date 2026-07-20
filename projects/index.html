@@ -1,179 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website in progress...">
-    <meta name="keywords" content="remym, moscovitz, remymoscovitz, rmoscovitz">
-    <link rel="icon" href="../media/rm_custom_icon.png" type="image/png">
-    <title>Projects</title>
-
-    <meta property="og:title" content="Remy Moscovitz" />
-    <meta property="og:description" content="Website in progress..." />
-    <meta property="og:image" content="../media/rm_custom_icon.png" />
-    <meta property="og:url" content="remymoscovitz.com" />
-
-    <!-- Your existing global styles -->
-    <link href="../styles/hamburger.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Selected software and web projects by Remy Moscovitz, including MMS Psychology, Football Management Panel and FileDrop.">
+  <meta name="theme-color" content="#060817">
+  <link rel="canonical" href="https://remymoscovitz.com/projects/">
+  <link rel="icon" href="/media/rm_custom_icon.png" type="image/png">
+  <title>Projects — Remy Moscovitz</title>
+  <link rel="stylesheet" href="/styles/site.css">
+  <script src="/script.js" defer></script>
 </head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="/" aria-label="Remy Moscovitz — home">
+      <img src="/media/white_nav_icon.png" alt="" width="44" height="44">
+      <span>Remy Moscovitz</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <span class="sr-only">Open navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-site-nav>
+      <a href="/#about">About</a>
+      <a href="/projects/" aria-current="page">Work</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
 
-<body onload="fadeIn()">
-    <!-- Top logo / fade overlay -->
-    <div class="top_fade">
-        <img src="../media/white_nav_icon.png" class="top-right-logo">
-    </div>
+  <main id="main-content">
+    <header class="page-hero section-shell">
+      <p class="eyebrow">Selected work</p>
+      <h1>Three projects. Three different kinds of problem.</h1>
+      <p class="project-page-intro">A live client website, a structured Java application, and a current software build. Open any project for the story, preview and next steps.</p>
+    </header>
 
-    <!-- Side navigation -->
-    <div id="mySidenav" class="sidenav">
-        <a href="../home/index.html">Home</a>
-        <a href="../contact/index.html">LinkedIn</a>
-        <a href="../github/index.html">GitHub</a>
-        <a href="../contact/index.html">Contact</a>
-        <a href="#">About</a>
-    </div>
+    <section class="section-shell projects-page-grid" aria-labelledby="projects-title">
+      <h2 class="sr-only" id="projects-title">All projects</h2>
+      <div class="project-grid" data-project-grid aria-live="polite">
+        <p class="loading-message">Loading projects…</p>
+      </div>
+    </section>
+  </main>
 
-    <!-- Hamburger button -->
-    <div style="position: fixed; z-index:3;">
-        <div class="name"></div>
-        <div class="hamburger hamburger--minus js-hamburger">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation / fade JS (unchanged logic) -->
-    <script>
-        // Hamburger / side nav logic
-        var hamburger = document.querySelector(".hamburger");
-        var isOpen = false; // Track the state of the menu
-
-        hamburger.addEventListener("click", function () {
-            hamburger.classList.toggle("is-active");
-
-            if (isOpen) {
-                closeNav();
-            } else {
-                openNav();
-            }
-
-            isOpen = !isOpen;
-        });
-
-        function fadeIn() {
-            var main = document.getElementById("main");
-            if (main) {
-                main.style.opacity = "1";
-                main.style.marginTop = "0px";
-            }
-        }
-
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
-
-    <!-- Main content -->
-    <div id="main">
-        <div id="fadeIn">
-            <div class="spacer"></div>
-
-            <h2>Projects</h2>
-            <p>Click on a project below to view more details.</p>
-
-            <!-- Categories -->
-            <h2>Java Projects</h2>
-            <div class="project-container" id="projects-java"></div>
-
-            <h2>JavaScript Projects</h2>
-            <div class="project-container" id="projects-javascript"></div>
-
-            <h2>Web Projects</h2>
-            <div class="project-container" id="projects-web"></div>
-
-            <h2>Database Projects</h2>
-            <div class="project-container" id="projects-database"></div>
-
-            <h2>Document Projects</h2>
-            <div class="project-container" id="projects-document"></div>
-        </div>
-    </div>
-
-    <!-- Project list loader -->
-    <script>
-        fetch('projects.json')
-            .then(function (response) {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
-            })
-            .then(function (projects) {
-
-                // Map category -> container ID
-                var categoryToContainerId = {
-                    java: 'projects-java',
-                    javascript: 'projects-javascript',
-                    web: 'projects-web',
-                    database: 'projects-database',
-                    document: 'projects-document'
-                };
-
-                // Clear all containers first
-                Object.keys(categoryToContainerId).forEach(function (cat) {
-                    var el = document.getElementById(categoryToContainerId[cat]);
-                    if (el) el.innerHTML = '';
-                });
-
-                // Sort by "order" field
-                projects.sort(function (a, b) {
-                    return (a.order || 0) - (b.order || 0);
-                });
-
-                projects.forEach(function (project) {
-                    var category = (project.category || '').toLowerCase();
-                    var containerId = categoryToContainerId[category] || categoryToContainerId.web;
-                    var container = document.getElementById(containerId);
-                    if (!container) return;
-
-                    // Create the project card div
-                    var box = document.createElement('div');
-                    box.classList.add('project-box');
-                    box.style.cursor = 'pointer';
-
-                    // Make the entire card clickable
-                    box.addEventListener('click', function () {
-                        if (project.id) {
-                            window.location.href = 'ProjectInfo.html?id=' + encodeURIComponent(project.id);
-                        } else {
-                            window.location.href = 'ProjectInfo.html';
-                        }
-                    });
-
-                    // Optional banner image at top of card
-                    if (project.image && project.image.trim() !== "") {
-                        var banner = document.createElement('div');
-                        banner.classList.add('card-baner');
-                        banner.style.backgroundImage = 'url("' + project.image + '")';
-                        box.appendChild(banner);
-                    }
-
-                    // Title text
-                    var title = document.createElement('h3');
-                    title.textContent = project.title || 'Untitled project';
-                    box.appendChild(title);
-
-                    // Append card to container
-                    container.appendChild(box);
-                });
-            })
-            .catch(function (error) {
-                console.error('Error loading projects.json:', error);
-            });
-    </script>
+  <footer class="site-footer section-shell">
+    <p>© <span data-current-year></span> Remy Moscovitz</p>
+    <p><a href="/">Return home</a></p>
+  </footer>
 </body>
 </html>
