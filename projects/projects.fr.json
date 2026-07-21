@@ -1,0 +1,79 @@
+[
+  {
+    "id": "mms-psychology",
+    "order": 1,
+    "title": "MMS Psychology",
+    "eyebrow": "Site client en ligne",
+    "year": "2025",
+    "image": "/projects/websites/mmspsychology/media/metagraph.png",
+    "imageAlt": "Aperçu de MMS Psychology avec le logo Sam Mary Moscovitz sur un mur de briques blanches",
+    "summary": "Un site que j’ai réalisé pour MMS Psychology, avec les services, les tarifs et la réservation en ligne.",
+    "description": "J’ai réalisé ce site pour MMS Psychology. L’objectif principal était de rendre les informations importantes faciles à trouver et de permettre aux clients de prendre rendez-vous simplement.\n\nVous pouvez consulter le site en direct ci-dessous sans quitter cette page.",
+    "tags": ["HTML", "CSS", "Site web adaptatif"],
+    "preview": {
+      "type": "iframe",
+      "url": "https://mmspsychology.com/"
+    },
+    "links": [
+      {
+        "label": "Ouvrir le site ↗",
+        "url": "https://mmspsychology.com/",
+        "primary": true
+      }
+    ]
+  },
+  {
+    "id": "football-management-panel",
+    "order": 2,
+    "title": "Football Management Panel",
+    "eyebrow": "Application Java",
+    "year": "2025",
+    "image": "/media/projects/football-management-preview.jpg",
+    "imageAlt": "Interface de Football Management Panel à côté de l’espace de travail du projet Java",
+    "summary": "Une application de bureau Java pour gérer des équipes et des joueurs de football.",
+    "description": "J’ai réalisé cette application en Java pour m’entraîner à travailler avec plusieurs écrans, l’état d’une application et une base de code plus importante. Elle comprend une interface de gestion des équipes et des joueurs de football.\n\nL’essentiel du travail a consisté à faire fonctionner les différentes parties du programme ensemble tout en gardant une interface compréhensible.",
+    "tags": ["Java", "Interface de bureau", "Conception d’applications"],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "Télécharger le projet",
+        "url": "/projects/JavaProjects/ManagementPannel/ManagementPannel.zip",
+        "primary": true
+      }
+    ]
+  },
+  {
+    "id": "filedrop",
+    "order": 3,
+    "title": "FileDrop",
+    "eyebrow": "Partage de fichiers multiplateforme",
+    "year": "2026",
+    "image": "/media/projects/filedrop-banner.png",
+    "imageAlt": "Logo parachute de FileDrop sur un fond bleu ciel",
+    "summary": "Un outil pour partager des fichiers entre des Mac et des PC Windows connectés au même réseau Wi-Fi.",
+    "description": "FileDrop permet d’envoyer des fichiers entre des Mac et des PC Windows lorsqu’ils sont connectés au même réseau Wi-Fi. J’ai commencé ce projet parce que déplacer des fichiers entre les deux plateformes est plus compliqué que nécessaire.\n\nLe projet est toujours en développement. Le code le plus récent et l’avancement sont disponibles sur GitHub.",
+    "tags": ["macOS", "Windows", "Transfert par Wi-Fi"],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "Télécharger pour Mac",
+        "url": "https://github.com/rmimpact/FileDrop/releases/download/filedrop-v1.0.0/FileDrop_1.0.0_darwin_universal.dmg",
+        "primary": true
+      },
+      {
+        "label": "Télécharger pour Windows",
+        "url": "https://github.com/rmimpact/FileDrop/releases/download/filedrop-v1.0.0/FileDrop_1.0.0_windows_x64-setup.exe",
+        "primary": true
+      },
+      {
+        "label": "Voir FileDrop sur GitHub ↗",
+        "url": "https://github.com/rmimpact/FileDrop",
+        "primary": false
+      }
+    ]
+  }
+]

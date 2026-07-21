@@ -161,6 +161,18 @@ a {
   background: var(--surface);
 }
 
+.site-nav .language-link {
+  min-width: 42px;
+  padding-inline: 11px;
+  color: var(--text);
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.site-nav .language-link:hover {
+  border-color: var(--border-bright);
+}
+
 .menu-button {
   display: none;
   width: 44px;

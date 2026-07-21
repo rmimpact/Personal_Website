@@ -1,4 +1,49 @@
-const PROJECTS_ENDPOINT = "/projects/projects.json";
+const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json" : "/projects/projects.json";
+const PROJECT_DETAIL_PATH = IS_FRENCH ? "/fr/projects/ProjectInfo.html" : "/projects/ProjectInfo.html";
+const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
+
+const UI_TEXT = IS_FRENCH ? {
+  openNavigation: "Ouvrir la navigation",
+  closeNavigation: "Fermer la navigation",
+  viewProject: "Voir le projet",
+  preview: "Aperçu",
+  projectsError: "Impossible de charger les projets pour le moment. Veuillez actualiser la page.",
+  livePreview: "Aperçu du site en direct",
+  openWebsite: "Ouvrir le site complet ↗",
+  websiteTitle: "site web",
+  projectNotFound: "Projet introuvable",
+  projectMissingTitle: "Ce projet n’est pas disponible.",
+  projectMissingText: "Choisissez l’un des trois projets actuels dans l’index des projets.",
+  viewProjects: "Voir les projets",
+  selectedProject: "Projet sélectionné",
+  projectStory: "À propos du projet",
+  whatIBuilt: "Ce que j’ai réalisé.",
+  backToProjects: "Retour à tous les projets",
+  genericError: "Un problème est survenu",
+  loadErrorTitle: "Impossible de charger ce projet.",
+  loadErrorText: "Veuillez actualiser la page ou revenir à l’index des projets."
+} : {
+  openNavigation: "Open navigation",
+  closeNavigation: "Close navigation",
+  viewProject: "View project",
+  preview: "preview",
+  projectsError: "The projects could not be loaded just now. Please refresh the page.",
+  livePreview: "Live website preview",
+  openWebsite: "Open full website ↗",
+  websiteTitle: "website",
+  projectNotFound: "Project not found",
+  projectMissingTitle: "That project isn’t here.",
+  projectMissingText: "Choose one of the three current projects from the project index.",
+  viewProjects: "View projects",
+  selectedProject: "Selected project",
+  projectStory: "Project story",
+  whatIBuilt: "What I built.",
+  backToProjects: "Back to all projects",
+  genericError: "Something went wrong",
+  loadErrorTitle: "This project could not be loaded.",
+  loadErrorText: "Please refresh the page or return to the project index."
+};
 
 function setupNavigation() {
   const button = document.querySelector("[data-menu-button]");
@@ -10,7 +55,7 @@ function setupNavigation() {
     button.setAttribute("aria-expanded", "false");
     navigation.dataset.open = "false";
     const label = button.querySelector(".sr-only");
-    if (label) label.textContent = "Open navigation";
+    if (label) label.textContent = UI_TEXT.openNavigation;
   };
 
   button.addEventListener("click", () => {
@@ -18,7 +63,7 @@ function setupNavigation() {
     button.setAttribute("aria-expanded", String(willOpen));
     navigation.dataset.open = String(willOpen);
     const label = button.querySelector(".sr-only");
-    if (label) label.textContent = willOpen ? "Close navigation" : "Open navigation";
+    if (label) label.textContent = willOpen ? UI_TEXT.closeNavigation : UI_TEXT.openNavigation;
   });
 
   navigation.addEventListener("click", (event) => {
@@ -53,8 +98,8 @@ function applyImageFallback(image, container, label) {
 function createProjectCard(project) {
   const card = document.createElement("a");
   card.className = "project-card";
-  card.href = `/projects/ProjectInfo.html?id=${encodeURIComponent(project.id)}`;
-  card.setAttribute("aria-label", `View ${project.title} project`);
+  card.href = `${PROJECT_DETAIL_PATH}?id=${encodeURIComponent(project.id)}`;
+  card.setAttribute("aria-label", `${UI_TEXT.viewProject} ${project.title}`);
 
   const media = document.createElement("div");
   media.className = "project-card__media";
@@ -65,11 +110,11 @@ function createProjectCard(project) {
     image.alt = project.imageAlt || "";
     image.loading = "lazy";
     image.decoding = "async";
-    applyImageFallback(image, media, `${project.title} preview`);
+    applyImageFallback(image, media, `${UI_TEXT.preview} ${project.title}`);
     media.appendChild(image);
   } else {
     media.classList.add("project-card__media--fallback");
-    media.textContent = `${project.title} preview`;
+    media.textContent = `${UI_TEXT.preview} ${project.title}`;
   }
 
   const body = document.createElement("div");
@@ -109,7 +154,7 @@ async function renderProjectGrids() {
     grids.forEach((grid) => {
       const message = document.createElement("p");
       message.className = "error-message";
-      message.textContent = "The projects could not be loaded just now. Please refresh the page.";
+      message.textContent = UI_TEXT.projectsError;
       grid.replaceChildren(message);
     });
   }
@@ -123,11 +168,11 @@ function createProjectVisual(project) {
 
     const bar = document.createElement("div");
     bar.className = "live-preview__bar";
-    bar.innerHTML = `<span>Live website preview</span><a href="${project.preview.url}" target="_blank" rel="noopener noreferrer">Open full website ↗</a>`;
+    bar.innerHTML = `<span>${UI_TEXT.livePreview}</span><a href="${project.preview.url}" target="_blank" rel="noopener noreferrer">${UI_TEXT.openWebsite}</a>`;
 
     const frame = document.createElement("iframe");
     frame.src = project.preview.url;
-    frame.title = `${project.title} website`;
+    frame.title = `${project.title} ${UI_TEXT.websiteTitle}`;
     frame.loading = "lazy";
     frame.referrerPolicy = "strict-origin-when-cross-origin";
     frame.setAttribute("sandbox", "allow-forms allow-popups allow-same-origin allow-scripts");
@@ -183,8 +228,8 @@ async function renderProjectDetail() {
     const project = projects.find((item) => item.id === id);
 
     if (!project) {
-      root.innerHTML = `<p class="eyebrow">Project not found</p><h1>That project isn’t here.</h1><p class="project-page-intro">Choose one of the three current projects from the project index.</p><div class="button-row"><a class="button button--primary" href="/projects/">View projects</a></div>`;
-      document.title = "Project not found — Remy Moscovitz";
+      root.innerHTML = `<p class="eyebrow">${UI_TEXT.projectNotFound}</p><h1>${UI_TEXT.projectMissingTitle}</h1><p class="project-page-intro">${UI_TEXT.projectMissingText}</p><div class="button-row"><a class="button button--primary" href="${PROJECT_INDEX_PATH}">${UI_TEXT.viewProjects}</a></div>`;
+      document.title = `${UI_TEXT.projectNotFound} — Remy Moscovitz`;
       return;
     }
 
@@ -202,22 +247,22 @@ async function renderProjectDetail() {
       </div>
       <aside class="project-detail__meta">
         <ul class="tag-list">${project.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
-        <p>${project.year} · Selected project</p>
+        <p>${project.year} · ${UI_TEXT.selectedProject}</p>
       </aside>`;
 
     const copy = document.createElement("section");
     copy.className = "project-copy-grid";
-    copy.innerHTML = `<div><p class="eyebrow">Project story</p><h2>What I built.</h2><p class="project-description">${project.description}</p></div>`;
+    copy.innerHTML = `<div><p class="eyebrow">${UI_TEXT.projectStory}</p><h2>${UI_TEXT.whatIBuilt}</h2><p class="project-description">${project.description}</p></div>`;
 
     const actions = document.createElement("div");
     actions.className = "project-actions";
     (project.links || []).forEach((link) => actions.appendChild(createProjectLink(link)));
-    actions.appendChild(createProjectLink({ label: "Back to all projects", url: "/projects/", primary: false }));
+    actions.appendChild(createProjectLink({ label: UI_TEXT.backToProjects, url: PROJECT_INDEX_PATH, primary: false }));
     copy.appendChild(actions);
 
     root.replaceChildren(header, createProjectVisual(project), copy);
   } catch (error) {
-    root.innerHTML = `<p class="eyebrow">Something went wrong</p><h1>This project could not be loaded.</h1><p class="project-page-intro">Please refresh the page or return to the project index.</p><div class="button-row"><a class="button button--primary" href="/projects/">View projects</a></div>`;
+    root.innerHTML = `<p class="eyebrow">${UI_TEXT.genericError}</p><h1>${UI_TEXT.loadErrorTitle}</h1><p class="project-page-intro">${UI_TEXT.loadErrorText}</p><div class="button-row"><a class="button button--primary" href="${PROJECT_INDEX_PATH}">${UI_TEXT.viewProjects}</a></div>`;
   }
 }
 
