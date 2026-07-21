@@ -701,7 +701,7 @@ h3 {
   margin-bottom: 22px;
 }
 
-.setup-photo-placeholder,
+.setup-photo,
 .setup-summary,
 .setup-group {
   background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
@@ -709,57 +709,18 @@ h3 {
   border-radius: var(--radius-md);
 }
 
-.setup-photo-placeholder {
-  position: relative;
-  display: grid;
-  min-height: 430px;
-  place-content: center;
+.setup-photo {
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  padding: 36px;
-  text-align: center;
-  background:
-    radial-gradient(circle at 68% 34%, rgba(232,180,93,.17), transparent 15rem),
-    linear-gradient(145deg, #20243a, #10121f 74%);
+  margin: 0;
+  background: #10121f;
 }
 
-.setup-photo-placeholder::before,
-.setup-photo-placeholder::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 50%;
-}
-
-.setup-photo-placeholder::before {
-  width: 360px;
-  height: 360px;
-  top: -180px;
-  left: -90px;
-}
-
-.setup-photo-placeholder::after {
-  right: -80px;
-  bottom: -130px;
-  width: 300px;
-  height: 300px;
-}
-
-.setup-photo-placeholder span,
-.setup-photo-placeholder small {
-  position: relative;
-  z-index: 1;
-}
-
-.setup-photo-placeholder span {
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  font-weight: 780;
-  letter-spacing: -0.04em;
-}
-
-.setup-photo-placeholder small {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: .9rem;
+.setup-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .setup-summary {
@@ -1131,10 +1092,6 @@ h3 {
 
   .setup-group--wide .setup-list {
     grid-template-columns: 1fr;
-  }
-
-  .setup-photo-placeholder {
-    min-height: 330px;
   }
 
   .text-link {
