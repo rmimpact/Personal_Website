@@ -30,9 +30,14 @@
     "year": "2025",
     "image": "/media/projects/football-management-preview.jpg",
     "imageAlt": "Interface de Football Management Panel à côté de l’espace de travail du projet Java",
-    "summary": "Une application de bureau Java pour gérer des équipes et des joueurs de football.",
-    "description": "J’ai réalisé cette application en Java pour m’entraîner à travailler avec plusieurs écrans, l’état d’une application et une base de code plus importante. Elle comprend une interface de gestion des équipes et des joueurs de football.\n\nL’essentiel du travail a consisté à faire fonctionner les différentes parties du programme ensemble tout en gardant une interface compréhensible.",
-    "tags": ["Java", "Interface de bureau", "Conception d’applications"],
+    "summary": "Une application éducative JavaFX qui permet aux managers d’organiser les équipes, les joueurs et les postes.",
+    "description": "Il s’agissait d’un projet éducatif construit autour d’une base de code Java plus importante. Il permet à un manager de gérer ses équipes, d’attribuer des postes aux joueurs sur le terrain, de déplacer des joueurs entre les équipes et de rejoindre une équipe disponible grâce aux identifiants des managers.\n\nCe projet m’a également permis de travailler sur la gestion des exceptions et sur une interface de bureau à plusieurs écrans avec JavaFX.",
+    "tags": ["Java", "JavaFX", "Interface de bureau", "Gestion des exceptions"],
+    "facts": [
+      { "label": "Langage", "value": "Java · JDK 1.8" },
+      { "label": "Interface", "value": "JavaFX 8" },
+      { "label": "Type", "value": "Application éducative de bureau" }
+    ],
     "preview": {
       "type": "image"
     },
@@ -53,8 +58,14 @@
     "image": "/media/projects/filedrop-banner.png",
     "imageAlt": "Logo parachute de FileDrop sur un fond bleu ciel",
     "summary": "Un outil pour partager des fichiers entre des Mac et des PC Windows connectés au même réseau Wi-Fi.",
-    "description": "FileDrop permet d’envoyer des fichiers entre des Mac et des PC Windows lorsqu’ils sont connectés au même réseau Wi-Fi. J’ai commencé ce projet parce que déplacer des fichiers entre les deux plateformes est plus compliqué que nécessaire.\n\nLe projet est toujours en développement. Le code le plus récent et l’avancement sont disponibles sur GitHub.",
-    "tags": ["macOS", "Windows", "Transfert par Wi-Fi"],
+    "description": "FileDrop permet d’envoyer directement des fichiers entre des Mac et des PC Windows connectés au même réseau Wi-Fi ou Ethernet, sans compte ni stockage dans le cloud.\n\nEn coulisses, l’application de bureau utilise Tauri. L’interface monopage en Angular et TypeScript gère la liste des appareils à proximité, la sélection des fichiers et la progression, tandis que le backend Rust s’occupe de la découverte sur le réseau local et des transferts. Les appareils s’annoncent via mDNS, puis les fichiers sont envoyés directement par une connexion TCP. Le destinataire peut accepter ou refuser la demande, et les événements Tauri transmettent l’état et la progression à l’interface Angular.\n\nLe projet est toujours en développement. Le code le plus récent et l’avancement sont disponibles sur GitHub.",
+    "tags": ["Rust", "Tauri", "Angular", "TypeScript", "mDNS + TCP"],
+    "facts": [
+      { "label": "Frontend", "value": "Angular 20 · TypeScript" },
+      { "label": "Backend", "value": "Rust" },
+      { "label": "Framework", "value": "Tauri 2" },
+      { "label": "Réseau", "value": "Découverte mDNS · Transferts TCP" }
+    ],
     "preview": {
       "type": "image"
     },
@@ -75,5 +86,56 @@
         "primary": false
       }
     ]
+  },
+  {
+    "id": "lab-check-app",
+    "order": 4,
+    "title": "Labs Check App",
+    "eyebrow": "Application opérationnelle low-code",
+    "year": "2026",
+    "image": "/media/projects/lab-check-app/labs-app-banner.jpg",
+    "imageAlt": "Icône et nom de Labs App sur une bannière bleu nuit",
+    "cardImageScale": 1.6,
+    "summary": "Une application discrète qui aide un sup à organiser les contrôles, les notes et les tâches quotidiennes.",
+    "description": "J’ai créé Labs Check App avec Microsoft Power Apps, beaucoup de Power Fx et un peu de JavaScript. Elle est reliée à des données cloud dans Dataverse et Excel afin de centraliser les enregistrements et les mises à jour du quotidien.\n\nElle simplifie et organise de nombreuses tâches quotidiennes gérées par un sup :).",
+    "tags": ["Power Apps", "Power Fx", "Dataverse", "Excel", "JavaScript"],
+    "preview": {
+      "type": "carousel",
+      "images": [
+        {
+          "src": "/media/projects/lab-check-app/home-screen.jpg",
+          "alt": "Écran d’accueil de Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/cabinets-overview.jpg",
+          "alt": "Aperçu des armoires dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/cabinet-check.jpg",
+          "alt": "Contrôle du stock d’une armoire dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/rooms.jpg",
+          "alt": "Contrôles des salles dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/room-details.jpg",
+          "alt": "Détails d’une salle dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/printers.jpg",
+          "alt": "Contrôles des imprimantes dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/notes.jpg",
+          "alt": "Aperçu des notes dans Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/note-details.jpg",
+          "alt": "Éditeur de notes dans Labs Check App"
+        }
+      ]
+    },
+    "links": []
   }
 ]

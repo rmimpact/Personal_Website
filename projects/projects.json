@@ -30,9 +30,14 @@
     "year": "2025",
     "image": "/media/projects/football-management-preview.jpg",
     "imageAlt": "Football Management Panel application interface running beside the Java project workspace",
-    "summary": "A Java desktop application for managing football teams and players.",
-    "description": "I built this as a Java project to practise working with multiple screens, application state and a larger codebase. It includes a management interface for football teams and players.\n\nMost of the work was about getting the different parts of the program to work together while keeping the interface understandable.",
-    "tags": ["Java", "Desktop UI", "Application design"],
+    "summary": "An educational JavaFX desktop application for football managers to organise teams, players and positions.",
+    "description": "This was an educational project built around a larger Java codebase. It gives football managers a place to manage their teams, assign players to positions on the field, move players between teams and switch to an available team using manager IDs.\n\nIt also gave me experience with exception handling and building a multi-screen desktop interface with JavaFX.",
+    "tags": ["Java", "JavaFX", "Desktop UI", "Exception handling"],
+    "facts": [
+      { "label": "Language", "value": "Java · JDK 1.8" },
+      { "label": "Interface", "value": "JavaFX 8" },
+      { "label": "Type", "value": "Educational desktop application" }
+    ],
     "preview": {
       "type": "image"
     },
@@ -53,8 +58,14 @@
     "image": "/media/projects/filedrop-banner.png",
     "imageAlt": "FileDrop parachute logo on a sky-blue background",
     "summary": "A tool for sharing files between Mac and Windows computers over the same Wi-Fi network.",
-    "description": "FileDrop lets you send files between Mac and Windows computers when they’re connected to the same Wi-Fi network. I started it because moving files between the two platforms is more annoying than it should be.\n\nThe project is still in development. The latest code and progress are on GitHub.",
-    "tags": ["macOS", "Windows", "Wi-Fi file transfer"],
+    "description": "FileDrop lets you send files directly between Mac and Windows computers on the same Wi-Fi or Ethernet network, without accounts or cloud storage.\n\nUnder the hood, the desktop app is built with Tauri. The Angular and TypeScript frontend handles the single-page interface, nearby device list, file selection and transfer progress, while the Rust backend handles local-network discovery and the file transfers themselves. Devices advertise over mDNS, then transfer files directly over a TCP connection. The receiver can accept or deny the request, and Tauri events pass transfer status and progress back to the Angular interface.\n\nThe project is still in development. The latest code and progress are on GitHub.",
+    "tags": ["Rust", "Tauri", "Angular", "TypeScript", "mDNS + TCP"],
+    "facts": [
+      { "label": "Frontend", "value": "Angular 20 · TypeScript" },
+      { "label": "Backend", "value": "Rust" },
+      { "label": "Framework", "value": "Tauri 2" },
+      { "label": "Networking", "value": "mDNS discovery · TCP transfers" }
+    ],
     "preview": {
       "type": "image"
     },
@@ -75,5 +86,56 @@
         "primary": false
       }
     ]
+  },
+  {
+    "id": "lab-check-app",
+    "order": 4,
+    "title": "Labs Check App",
+    "eyebrow": "Low-code operations app",
+    "year": "2026",
+    "image": "/media/projects/lab-check-app/labs-app-banner.jpg",
+    "imageAlt": "Labs App icon and name on a dark navy banner",
+    "cardImageScale": 1.6,
+    "summary": "A low-key operations app that helps a sup keep daily checks, notes and routine tasks moving.",
+    "description": "I built Labs Check App with Microsoft Power Apps, using plenty of Power Fx and a small amount of JavaScript. It connects to cloud data through Dataverse and Excel, keeping everyday records and updates in one place.\n\nIt helps streamline and manage a lot of the daily tasks handled by a sup :).",
+    "tags": ["Power Apps", "Power Fx", "Dataverse", "Excel", "JavaScript"],
+    "preview": {
+      "type": "carousel",
+      "images": [
+        {
+          "src": "/media/projects/lab-check-app/home-screen.jpg",
+          "alt": "Labs Check App home screen"
+        },
+        {
+          "src": "/media/projects/lab-check-app/rooms.jpg",
+          "alt": "Room checks in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/cabinets-overview.jpg",
+          "alt": "Cabinet overview in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/cabinet-check.jpg",
+          "alt": "Cabinet stock check in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/room-details.jpg",
+          "alt": "Room details in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/printers.jpg",
+          "alt": "Printer checks in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/notes.jpg",
+          "alt": "Notes overview in Labs Check App"
+        },
+        {
+          "src": "/media/projects/lab-check-app/note-details.jpg",
+          "alt": "Note editor in Labs Check App"
+        }
+      ]
+    },
+    "links": []
   }
 ]

@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json" : "/projects/projects.json";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260723-4" : "/projects/projects.json?v=20260723-4";
 const PROJECT_DETAIL_PATH = IS_FRENCH ? "/fr/projects/ProjectInfo.html" : "/projects/ProjectInfo.html";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 
@@ -14,12 +14,19 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "site web",
   projectNotFound: "Projet introuvable",
   projectMissingTitle: "Ce projet n’est pas disponible.",
-  projectMissingText: "Choisissez l’un des trois projets actuels dans l’index des projets.",
+  projectMissingText: "Choisissez l’un des quatre projets actuels dans l’index des projets.",
   viewProjects: "Voir les projets",
   selectedProject: "Projet sélectionné",
   projectStory: "À propos du projet",
   whatIBuilt: "Ce que j’ai réalisé.",
   backToProjects: "Retour à tous les projets",
+  gallery: "Galerie du projet",
+  previousImage: "Image précédente",
+  nextImage: "Image suivante",
+  goToImage: "Afficher l’image",
+  image: "Image",
+  of: "sur",
+  previewUnavailable: "Aperçu indisponible",
   genericError: "Un problème est survenu",
   loadErrorTitle: "Impossible de charger ce projet.",
   loadErrorText: "Veuillez actualiser la page ou revenir à l’index des projets."
@@ -34,12 +41,19 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "website",
   projectNotFound: "Project not found",
   projectMissingTitle: "That project isn’t here.",
-  projectMissingText: "Choose one of the three current projects from the project index.",
+  projectMissingText: "Choose one of the four current projects from the project index.",
   viewProjects: "View projects",
   selectedProject: "Selected project",
   projectStory: "Project story",
   whatIBuilt: "What I built.",
   backToProjects: "Back to all projects",
+  gallery: "Project gallery",
+  previousImage: "Previous image",
+  nextImage: "Next image",
+  goToImage: "Show image",
+  image: "Image",
+  of: "of",
+  previewUnavailable: "Preview unavailable",
   genericError: "Something went wrong",
   loadErrorTitle: "This project could not be loaded.",
   loadErrorText: "Please refresh the page or return to the project index."
@@ -82,7 +96,7 @@ function setCurrentYear() {
 }
 
 async function fetchProjects() {
-  const response = await fetch(PROJECTS_ENDPOINT);
+  const response = await fetch(PROJECTS_ENDPOINT, { cache: "no-cache" });
   if (!response.ok) throw new Error("Could not load project data");
   return response.json();
 }
@@ -103,6 +117,14 @@ function createProjectCard(project) {
 
   const media = document.createElement("div");
   media.className = "project-card__media";
+  if (Number.isFinite(project.cardImageScale)) {
+    media.style.setProperty("--card-image-scale", String(project.cardImageScale));
+    media.style.setProperty("--card-image-hover-scale", String(project.cardImageScale * 1.035));
+  }
+  if (project.imageFit === "contain") {
+    media.classList.add("project-card__media--contain");
+    if (project.image) media.style.setProperty("--project-image", `url("${project.image}")`);
+  }
 
   if (project.image) {
     const image = document.createElement("img");
@@ -140,6 +162,144 @@ function createProjectCard(project) {
   return card;
 }
 
+function createProjectCarousel(project) {
+  const images = project.preview.images;
+  const carousel = document.createElement("section");
+  carousel.className = "project-carousel";
+  carousel.setAttribute("aria-label", `${project.title} — ${UI_TEXT.gallery}`);
+
+  const stage = document.createElement("div");
+  stage.className = "project-carousel__stage";
+  stage.dataset.errorLabel = UI_TEXT.previewUnavailable;
+
+  const track = document.createElement("div");
+  track.className = "project-carousel__track";
+  track.tabIndex = 0;
+
+  const previous = document.createElement("button");
+  previous.className = "project-carousel__button project-carousel__button--previous";
+  previous.type = "button";
+  previous.setAttribute("aria-label", UI_TEXT.previousImage);
+  previous.innerHTML = '<span aria-hidden="true">←</span>';
+
+  const next = document.createElement("button");
+  next.className = "project-carousel__button project-carousel__button--next";
+  next.type = "button";
+  next.setAttribute("aria-label", UI_TEXT.nextImage);
+  next.innerHTML = '<span aria-hidden="true">→</span>';
+
+  const footer = document.createElement("div");
+  footer.className = "project-carousel__footer";
+
+  const counter = document.createElement("p");
+  counter.className = "project-carousel__counter";
+  counter.setAttribute("aria-live", "polite");
+
+  const dots = document.createElement("div");
+  dots.className = "project-carousel__dots";
+  dots.setAttribute("aria-label", UI_TEXT.gallery);
+
+  let activeIndex = 0;
+  let scrollFrame = null;
+
+  const slides = images.map((item, index) => {
+    const slide = document.createElement("figure");
+    slide.className = "project-carousel__slide";
+    slide.dataset.index = String(index);
+
+    const image = document.createElement("img");
+    image.src = item.src;
+    image.alt = item.alt || "";
+    image.decoding = "async";
+    image.loading = index === 0 ? "eager" : "lazy";
+    image.addEventListener("error", () => {
+      slide.classList.add("project-carousel__slide--error");
+      slide.dataset.errorLabel = UI_TEXT.previewUnavailable;
+      image.remove();
+    }, { once: true });
+
+    slide.appendChild(image);
+    track.appendChild(slide);
+    return slide;
+  });
+
+  const dotButtons = images.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `${UI_TEXT.goToImage} ${index + 1}`);
+    dot.addEventListener("click", () => showImage(index));
+    dots.appendChild(dot);
+    return dot;
+  });
+
+  function updateStatus() {
+    counter.textContent = `${UI_TEXT.image} ${activeIndex + 1} ${UI_TEXT.of} ${images.length}`;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("project-carousel__slide--active", slideIndex === activeIndex);
+    });
+    dotButtons.forEach((dot, dotIndex) => {
+      dot.setAttribute("aria-current", dotIndex === activeIndex ? "true" : "false");
+    });
+  }
+
+  function showImage(index, shouldScroll = true) {
+    activeIndex = (index + images.length) % images.length;
+    updateStatus();
+
+    if (!shouldScroll) return;
+    const slide = slides[activeIndex];
+    const left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+    track.scrollTo({
+      left,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
+  }
+
+  previous.addEventListener("click", () => showImage(activeIndex - 1));
+  next.addEventListener("click", () => showImage(activeIndex + 1));
+
+  track.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showImage(activeIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showImage(activeIndex + 1);
+    }
+  });
+
+  track.addEventListener("scroll", () => {
+    if (scrollFrame) cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(() => {
+      const trackCentre = track.scrollLeft + track.clientWidth / 2;
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide, index) => {
+        const slideCentre = slide.offsetLeft + slide.clientWidth / 2;
+        const distance = Math.abs(slideCentre - trackCentre);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      if (closestIndex !== activeIndex) {
+        activeIndex = closestIndex;
+        updateStatus();
+      }
+    });
+  });
+
+  stage.append(track, previous, next);
+  footer.append(counter, dots);
+  carousel.append(stage, footer);
+  showImage(0, false);
+  return carousel;
+}
+
 async function renderProjectGrids() {
   const grids = document.querySelectorAll("[data-project-grid]");
   if (!grids.length) return;
@@ -161,6 +321,10 @@ async function renderProjectGrids() {
 }
 
 function createProjectVisual(project) {
+  if (project.preview?.type === "carousel" && Array.isArray(project.preview.images) && project.preview.images.length) {
+    return createProjectCarousel(project);
+  }
+
   if (project.preview?.type === "iframe" && project.preview.url) {
     const preview = document.createElement("section");
     preview.className = "live-preview";
@@ -237,6 +401,10 @@ async function renderProjectDetail() {
     const descriptionMeta = document.querySelector('meta[name="description"]');
     if (descriptionMeta) descriptionMeta.content = project.summary;
 
+    const facts = Array.isArray(project.facts) && project.facts.length
+      ? `<dl class="project-facts">${project.facts.map((fact) => `<div><dt>${fact.label}</dt><dd>${fact.value}</dd></div>`).join("")}</dl>`
+      : "";
+
     const header = document.createElement("header");
     header.className = "project-detail__header";
     header.innerHTML = `
@@ -248,6 +416,7 @@ async function renderProjectDetail() {
       <aside class="project-detail__meta">
         <ul class="tag-list">${project.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
         <p>${project.year} · ${UI_TEXT.selectedProject}</p>
+        ${facts}
       </aside>`;
 
     const copy = document.createElement("section");
