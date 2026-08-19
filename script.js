@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260723-4" : "/projects/projects.json?v=20260723-4";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260726-1" : "/projects/projects.json?v=20260726-1";
 const PROJECT_DETAIL_PATH = IS_FRENCH ? "/fr/projects/ProjectInfo.html" : "/projects/ProjectInfo.html";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 
