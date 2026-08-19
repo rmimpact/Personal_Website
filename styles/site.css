@@ -622,6 +622,19 @@ h3 {
   font-size: 1.25rem;
 }
 
+@media (min-width: 721px) {
+  .project-grid > .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(230px, .75fr);
+  }
+
+  .project-grid > .project-card:last-child:nth-child(odd) .project-card__media {
+    min-height: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

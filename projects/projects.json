@@ -137,5 +137,27 @@
       ]
     },
     "links": []
+  },
+  {
+    "id": "rem-ai",
+    "order": 5,
+    "title": "REM",
+    "eyebrow": "Local-first Windows AI assistant",
+    "year": "2026",
+    "image": "/media/projects/rem-ai/Rem_Banner.png",
+    "imageAlt": "REM eye logo glowing above the REM wordmark on a dark navy background",
+    "summary": "A local-first Windows assistant that sees your screen, calls tools and speaks back, running entirely on local models.",
+    "description": "REM is a local-first Windows assistant focused on tool use, system awareness and persistent memory. It runs on local models through Ollama, so nothing has to leave the machine.\n\nThe current milestone covers a desktop app shell, a Windows system-info tool, multi-monitor screenshot capture and a vision-model path for screen understanding, plus a first-pass local file tool for reading, writing and browsing files. The first-run goal is simple: start REM, confirm it's online, ask for hardware info, let it call a local tool and answer with the local model, then ask what's on screen and let it use the local vision model to answer.\n\nIt's early, but the direction is clear: voice control, spoken responses, visible reasoning, and eventually full smart-home integration, all running locally.",
+    "tags": ["Python", "Ollama", "Local LLM", "Computer vision", "Windows"],
+    "facts": [
+      { "label": "Runtime", "value": "Python 3.13+" },
+      { "label": "Models", "value": "Qwen3 30B · MiniCPM-V 4.5 (Ollama)" },
+      { "label": "Platform", "value": "Windows" },
+      { "label": "Status", "value": "Early local scaffold, active development" }
+    ],
+    "preview": {
+      "type": "image"
+    },
+    "links": []
   }
 ]
