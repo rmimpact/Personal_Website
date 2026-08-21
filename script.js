@@ -112,7 +112,7 @@ function applyImageFallback(image, container, label) {
 function createProjectCard(project) {
   const card = document.createElement("a");
   card.className = "project-card";
-  card.href = `${PROJECT_DETAIL_PATH}?id=${encodeURIComponent(project.id)}`;
+  card.href = `${PROJECT_INDEX_PATH}${encodeURIComponent(project.id)}/`;
   card.setAttribute("aria-label", `${UI_TEXT.viewProject} ${project.title}`);
 
   const media = document.createElement("div");
@@ -381,11 +381,20 @@ function createProjectLink(link) {
   return anchor;
 }
 
+function pathProjectId() {
+  const segments = window.location.pathname.split("/").filter(Boolean);
+  const projectsIndex = segments.indexOf("projects");
+  if (projectsIndex === -1) return null;
+  const next = segments[projectsIndex + 1];
+  if (!next || next.toLowerCase() === "projectinfo.html") return null;
+  return decodeURIComponent(next);
+}
+
 async function renderProjectDetail() {
   const root = document.querySelector("[data-project-detail]");
   if (!root) return;
 
-  const id = new URLSearchParams(window.location.search).get("id");
+  const id = new URLSearchParams(window.location.search).get("id") || pathProjectId();
 
   try {
     const projects = await fetchProjects();
