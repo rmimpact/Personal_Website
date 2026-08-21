@@ -17,7 +17,9 @@ const path = require("path");
 
 const SITE_URL = "https://remymoscovitz.com";
 const ROOT = __dirname;
-const ASSET_VERSION = "20260726-1";
+const ASSET_VERSION = "20260821-1";
+const DEFAULT_DESCRIPTION = "A project from the software engineering portfolio of Remy Moscovitz.";
+const DEFAULT_OG_IMAGE = "/media/og-remy-portfolio.png";
 
 function readProjects(file) {
   const raw = fs.readFileSync(path.join(ROOT, file), "utf8");
@@ -25,8 +27,17 @@ function readProjects(file) {
 }
 
 function absoluteUrl(url) {
-  if (/^https?:\/\//.test(url)) return url;
-  return `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+  const source = typeof url === "string" && url.trim() ? url.trim() : DEFAULT_OG_IMAGE;
+
+  try {
+    const resolved = new URL(source, `${SITE_URL}/`);
+    if (resolved.protocol !== "http:" && resolved.protocol !== "https:") {
+      return `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+    }
+    return resolved.href;
+  } catch (error) {
+    return `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+  }
 }
 
 function escapeHtml(value) {
@@ -37,12 +48,51 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+function projectMetadata(project, canonicalPath) {
+  const projectTitle = typeof project.title === "string" && project.title.trim()
+    ? project.title.trim()
+    : "Project";
+  const title = `${projectTitle} — Remy Moscovitz`;
+  const description = typeof project.summary === "string" && project.summary.trim()
+    ? project.summary.trim()
+    : DEFAULT_DESCRIPTION;
+  const image = absoluteUrl(project.ogImage || DEFAULT_OG_IMAGE);
+  const imageAlt = typeof project.ogImageAlt === "string" && project.ogImageAlt.trim()
+    ? project.ogImageAlt.trim()
+    : (typeof project.imageAlt === "string" && project.imageAlt.trim()
+      ? project.imageAlt.trim()
+      : `${projectTitle} social preview`);
+
+  return {
+    title,
+    description,
+    image,
+    imageAlt,
+    canonicalUrl: `${SITE_URL}${canonicalPath}`
+  };
+}
+
+function validateProjects(projects, sourceName) {
+  if (!Array.isArray(projects)) throw new Error(`${sourceName} must contain an array`);
+
+  const ids = new Set();
+  for (const project of projects) {
+    if (!project || typeof project !== "object") throw new Error(`${sourceName} contains an invalid project`);
+    if (typeof project.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.id)) {
+      throw new Error(`${sourceName} contains an unsafe project id: ${String(project.id)}`);
+    }
+    if (ids.has(project.id)) throw new Error(`${sourceName} contains duplicate project id: ${project.id}`);
+    ids.add(project.id);
+  }
+}
+
 function renderPage({ lang, project, canonicalPath, alternatePath, nav, ogLocale }) {
-  const title = `${project.title} — Remy Moscovitz`;
-  const description = escapeHtml(project.summary);
-  const image = absoluteUrl(project.image || "/media/og-remy-portfolio.png");
-  const imageAlt = escapeHtml(project.imageAlt || project.title);
-  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const metadata = projectMetadata(project, canonicalPath);
+  const title = escapeHtml(metadata.title);
+  const description = escapeHtml(metadata.description);
+  const image = escapeHtml(metadata.image);
+  const imageAlt = escapeHtml(metadata.imageAlt);
+  const canonicalUrl = escapeHtml(metadata.canonicalUrl);
   const alternateUrl = `${SITE_URL}${alternatePath}`;
 
   return `<!doctype html>
@@ -56,20 +106,22 @@ function renderPage({ lang, project, canonicalPath, alternatePath, nav, ogLocale
   <link rel="alternate" hreflang="${nav.altHreflang}" href="${alternateUrl}">
   <link rel="alternate" hreflang="x-default" href="${SITE_URL}/projects/${project.id}/">
   <link rel="icon" href="/media/rm_custom_icon.png" type="image/png">
-  <title>${escapeHtml(title)}</title>
+  <title>${title}</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="${escapeHtml(project.title)}">
+  <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${image}">
+  <meta property="og:image:secure_url" content="${image}">
   <meta property="og:image:alt" content="${imageAlt}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="Remy Moscovitz">
   <meta property="og:locale" content="${ogLocale}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${escapeHtml(project.title)}">
+  <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${image}">
+  <meta name="twitter:image:alt" content="${imageAlt}">
 
   <script src="/language.js?v=${ASSET_VERSION}"></script>
   <link rel="stylesheet" href="/styles/site.css?v=${ASSET_VERSION}">
@@ -171,6 +223,8 @@ function pruneStaleDirs(baseDir, validIds) {
 function main() {
   const enProjects = readProjects("projects/projects.json");
   const frProjects = readProjects("projects/projects.fr.json");
+  validateProjects(enProjects, "projects/projects.json");
+  validateProjects(frProjects, "projects/projects.fr.json");
   const frById = new Map(frProjects.map((project) => [project.id, project]));
 
   const enIds = new Set(enProjects.map((project) => project.id));
@@ -203,4 +257,14 @@ function main() {
   pruneStaleDirs(path.join(ROOT, "fr", "projects"), enIds);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  absoluteUrl,
+  escapeHtml,
+  projectMetadata,
+  renderPage,
+  validateProjects
+};

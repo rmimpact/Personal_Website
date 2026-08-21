@@ -1,7 +1,11 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260726-1" : "/projects/projects.json?v=20260726-1";
-const PROJECT_DETAIL_PATH = IS_FRENCH ? "/fr/projects/ProjectInfo.html" : "/projects/ProjectInfo.html";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260821-1" : "/projects/projects.json?v=20260821-1";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
+const SITE_ORIGIN = "https://remymoscovitz.com";
+const DEFAULT_PROJECT_OG_IMAGE = "/media/og-remy-portfolio.png";
+const DEFAULT_PROJECT_DESCRIPTION = IS_FRENCH
+  ? "Présentation d’un projet logiciel de Remy Moscovitz."
+  : "Project details from the software engineering portfolio of Remy Moscovitz.";
 
 const UI_TEXT = IS_FRENCH ? {
   openNavigation: "Ouvrir la navigation",
@@ -93,6 +97,74 @@ function setCurrentYear() {
   document.querySelectorAll("[data-current-year]").forEach((element) => {
     element.textContent = new Date().getFullYear();
   });
+}
+
+function setMetaContent(attribute, key, content) {
+  let meta = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}
+
+function setCanonicalUrl(url) {
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.appendChild(canonical);
+  }
+  canonical.href = url;
+}
+
+function publicAssetUrl(path) {
+  if (typeof path !== "string" || !path.trim()) {
+    return new URL(DEFAULT_PROJECT_OG_IMAGE, SITE_ORIGIN).href;
+  }
+
+  try {
+    const url = new URL(path.trim(), SITE_ORIGIN);
+    return ["http:", "https:"].includes(url.protocol)
+      ? url.href
+      : new URL(DEFAULT_PROJECT_OG_IMAGE, SITE_ORIGIN).href;
+  } catch (error) {
+    return new URL(DEFAULT_PROJECT_OG_IMAGE, SITE_ORIGIN).href;
+  }
+}
+
+function projectPublicUrl(project) {
+  const languagePrefix = IS_FRENCH ? "/fr" : "";
+  return new URL(`${languagePrefix}/projects/${encodeURIComponent(project.id)}/`, SITE_ORIGIN).href;
+}
+
+function syncProjectMetadata(project) {
+  const title = `${project.title || UI_TEXT.projectNotFound} — Remy Moscovitz`;
+  const description = typeof project.summary === "string" && project.summary.trim()
+    ? project.summary.trim()
+    : DEFAULT_PROJECT_DESCRIPTION;
+  const image = publicAssetUrl(project.ogImage || DEFAULT_PROJECT_OG_IMAGE);
+  const imageAlt = project.ogImageAlt || project.imageAlt || `${project.title || "Project"} social preview`;
+  const url = projectPublicUrl(project);
+
+  document.title = title;
+  setCanonicalUrl(url);
+  setMetaContent("name", "description", description);
+  setMetaContent("property", "og:type", "website");
+  setMetaContent("property", "og:title", title);
+  setMetaContent("property", "og:description", description);
+  setMetaContent("property", "og:image", image);
+  setMetaContent("property", "og:image:secure_url", image);
+  setMetaContent("property", "og:image:alt", imageAlt);
+  setMetaContent("property", "og:url", url);
+  setMetaContent("property", "og:site_name", "Remy Moscovitz");
+  setMetaContent("property", "og:locale", IS_FRENCH ? "fr_FR" : "en_US");
+  setMetaContent("name", "twitter:card", "summary_large_image");
+  setMetaContent("name", "twitter:title", title);
+  setMetaContent("name", "twitter:description", description);
+  setMetaContent("name", "twitter:image", image);
+  setMetaContent("name", "twitter:image:alt", imageAlt);
 }
 
 async function fetchProjects() {
@@ -406,9 +478,7 @@ async function renderProjectDetail() {
       return;
     }
 
-    document.title = `${project.title} — Remy Moscovitz`;
-    const descriptionMeta = document.querySelector('meta[name="description"]');
-    if (descriptionMeta) descriptionMeta.content = project.summary;
+    syncProjectMetadata(project);
 
     const facts = Array.isArray(project.facts) && project.facts.length
       ? `<dl class="project-facts">${project.facts.map((fact) => `<div><dt>${fact.label}</dt><dd>${fact.value}</dd></div>`).join("")}</dl>`
