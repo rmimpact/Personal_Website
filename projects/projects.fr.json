@@ -161,7 +161,47 @@
       { "label": "Statut", "value": "Premier prototype local, en développement actif" }
     ],
     "preview": {
-      "type": "image"
+      "type": "showcase",
+      "banner": {
+        "src": "/media/projects/rem-ai/Rem_Banner.png",
+        "alt": "Logo œil et mot-symbole REM lumineux sur un fond spatial bleu nuit"
+      },
+      "highlights": [
+        { "icon": "shield", "label": "Privé par conception" },
+        { "icon": "processor", "label": "Modèles locaux" },
+        { "icon": "remote", "label": "Accès distant sécurisé" }
+      ],
+      "sections": [
+        {
+          "id": "mobile",
+          "eyebrow": "Compagnon mobile",
+          "title": "Votre PC Windows, toujours à portée de main.",
+          "description": "La partie mobile de REM garde le chat, le terminal, les commandes à distance et les alertes à portée de main, tandis que le PC Windows effectue le travail en local.",
+          "layout": "mobile",
+          "images": [
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Home.PNG",
+              "alt": "Accueil mobile de REM avec le PC Windows connecté et les actions rapides"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Chat.PNG",
+              "alt": "Conversation avec REM dans l’application mobile"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Terminal.PNG",
+              "alt": "Terminal Windows distant dans l’application mobile REM"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Remote.PNG",
+              "alt": "Écran de contrôle à distance dans l’application mobile REM"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Alerts.PNG",
+              "alt": "Écran des alertes dans l’application mobile REM"
+            }
+          ]
+        }
+      ]
     },
     "links": []
   }

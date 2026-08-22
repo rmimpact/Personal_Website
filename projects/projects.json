@@ -161,7 +161,47 @@
       { "label": "Status", "value": "Early local scaffold, active development" }
     ],
     "preview": {
-      "type": "image"
+      "type": "showcase",
+      "banner": {
+        "src": "/media/projects/rem-ai/Rem_Banner.png",
+        "alt": "REM eye logo and wordmark glowing over a deep-blue space background"
+      },
+      "highlights": [
+        { "icon": "shield", "label": "Private by design" },
+        { "icon": "processor", "label": "Local models" },
+        { "icon": "remote", "label": "Secure remote access" }
+      ],
+      "sections": [
+        {
+          "id": "mobile",
+          "eyebrow": "Mobile companion",
+          "title": "Your Windows machine, within reach.",
+          "description": "The mobile side of REM keeps chat, terminal access, remote controls and alerts close by while the Windows host does the heavy lifting locally.",
+          "layout": "mobile",
+          "images": [
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Home.PNG",
+              "alt": "REM mobile home screen showing the connected Windows host and quick actions"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Chat.PNG",
+              "alt": "Chat with REM on the mobile companion app"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Terminal.PNG",
+              "alt": "Remote Windows terminal in the REM mobile companion app"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Remote.PNG",
+              "alt": "Remote control screen in the REM mobile companion app"
+            },
+            {
+              "src": "/media/projects/rem-ai/Mobile_Preview/Alerts.PNG",
+              "alt": "REM mobile alerts screen"
+            }
+          ]
+        }
+      ]
     },
     "links": []
   }

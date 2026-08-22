@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260821-1" : "/projects/projects.json?v=20260821-1";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260822-2" : "/projects/projects.json?v=20260822-2";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 const SITE_ORIGIN = "https://remymoscovitz.com";
 const DEFAULT_PROJECT_OG_IMAGE = "/media/og-remy-portfolio.png";
@@ -234,11 +234,12 @@ function createProjectCard(project) {
   return card;
 }
 
-function createProjectCarousel(project) {
-  const images = project.preview.images;
+function createProjectCarousel(project, options = {}) {
+  const images = options.images || project.preview.images;
   const carousel = document.createElement("section");
   carousel.className = "project-carousel";
-  carousel.setAttribute("aria-label", `${project.title} — ${UI_TEXT.gallery}`);
+  if (options.layout) carousel.classList.add(`project-carousel--${options.layout}`);
+  carousel.setAttribute("aria-label", options.label || `${project.title} — ${UI_TEXT.gallery}`);
 
   const stage = document.createElement("div");
   stage.className = "project-carousel__stage";
@@ -369,7 +370,102 @@ function createProjectCarousel(project) {
   footer.append(counter, dots);
   carousel.append(stage, footer);
   showImage(0, false);
+  requestAnimationFrame(() => showImage(0));
   return carousel;
+}
+
+function createRemHighlightIcon(name) {
+  const icons = {
+    shield: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3 19 6v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>`,
+    processor: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6" y="6" width="12" height="12" rx="3" />
+        <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4" />
+        <path d="m12 9 .7 2.3L15 12l-2.3.7L12 15l-.7-2.3L9 12l2.3-.7L12 9Z" />
+      </svg>`,
+    remote: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="5" width="13" height="10" rx="2" />
+        <path d="M7 19h5m-2.5-4v4" />
+        <rect x="16" y="11" width="5" height="9" rx="1.5" />
+        <path d="M17.5 8.5c1.2 0 2.2.6 2.8 1.5M16.5 6c2.6 0 4.7 1.2 5.8 3" />
+      </svg>`
+  };
+
+  const icon = document.createElement("span");
+  icon.className = "rem-showcase__highlight-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML = icons[name] || icons.processor;
+  return icon;
+}
+
+function createRemShowcase(project) {
+  const preview = project.preview;
+  const showcase = document.createElement("div");
+  showcase.className = "rem-showcase";
+
+  const banner = document.createElement("figure");
+  banner.className = "rem-showcase__banner";
+
+  const bannerImage = document.createElement("img");
+  bannerImage.src = preview.banner?.src || project.image;
+  bannerImage.alt = preview.banner?.alt || project.imageAlt || "";
+  bannerImage.decoding = "async";
+  bannerImage.addEventListener("error", () => {
+    bannerImage.remove();
+    banner.classList.add("project-visual--fallback");
+    banner.textContent = project.title;
+  }, { once: true });
+
+  banner.appendChild(bannerImage);
+  showcase.appendChild(banner);
+
+  if (Array.isArray(preview.highlights) && preview.highlights.length) {
+    const highlights = document.createElement("ul");
+    highlights.className = "rem-showcase__highlights";
+    preview.highlights.forEach((highlight) => {
+      const item = document.createElement("li");
+      const label = document.createElement("span");
+      const highlightLabel = typeof highlight === "string" ? highlight : highlight.label;
+      label.className = "rem-showcase__highlight-label";
+      label.textContent = highlightLabel || "";
+      item.append(createRemHighlightIcon(highlight.icon), label);
+      highlights.appendChild(item);
+    });
+    showcase.appendChild(highlights);
+  }
+
+  (preview.sections || []).forEach((section) => {
+    if (!Array.isArray(section.images) || !section.images.length) return;
+
+    const feature = document.createElement("section");
+    feature.className = "rem-showcase__section";
+    if (section.id) feature.id = `rem-${section.id}`;
+
+    const heading = document.createElement("div");
+    heading.className = "rem-showcase__heading";
+    heading.innerHTML = `
+      <div>
+        <p class="eyebrow">${section.eyebrow || UI_TEXT.gallery}</p>
+        <h2>${section.title || project.title}</h2>
+      </div>
+      ${section.description ? `<p>${section.description}</p>` : ""}`;
+
+    const carousel = createProjectCarousel(project, {
+      images: section.images,
+      layout: section.layout,
+      label: `${project.title} — ${section.eyebrow || UI_TEXT.gallery}`
+    });
+
+    feature.append(heading, carousel);
+    showcase.appendChild(feature);
+  });
+
+  return showcase;
 }
 
 async function renderProjectGrids() {
@@ -393,6 +489,10 @@ async function renderProjectGrids() {
 }
 
 function createProjectVisual(project) {
+  if (project.preview?.type === "showcase" && Array.isArray(project.preview.sections)) {
+    return createRemShowcase(project);
+  }
+
   if (project.preview?.type === "carousel" && Array.isArray(project.preview.images) && project.preview.images.length) {
     return createProjectCarousel(project);
   }
@@ -508,6 +608,7 @@ async function renderProjectDetail() {
     actions.appendChild(createProjectLink({ label: UI_TEXT.backToProjects, url: PROJECT_INDEX_PATH, primary: false }));
     copy.appendChild(actions);
 
+    root.dataset.projectId = project.id;
     root.replaceChildren(header, createProjectVisual(project), copy);
   } catch (error) {
     root.innerHTML = `<p class="eyebrow">${UI_TEXT.genericError}</p><h1>${UI_TEXT.loadErrorTitle}</h1><p class="project-page-intro">${UI_TEXT.loadErrorText}</p><div class="button-row"><a class="button button--primary" href="${PROJECT_INDEX_PATH}">${UI_TEXT.viewProjects}</a></div>`;
