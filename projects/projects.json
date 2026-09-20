@@ -156,8 +156,42 @@
     ]
   },
   {
-    "id": "lab-check-app",
+    "id": "darkenator",
     "order": 4,
+    "title": "Darkenator",
+    "eyebrow": "Automatic Windows themes",
+    "year": "2026",
+    "image": "/media/projects/darkenator-banner.png",
+    "imageAlt": "Darkenator sun and moon artwork transitioning from a bright daytime scene to a dark night scene",
+    "ogImage": "/media/projects/darkenator-banner.png",
+    "summary": "A Windows tray app that switches the whole system between light and dark mode on a schedule or with sunrise and sunset.",
+    "description": "Darkenator is a lightweight Windows tray app that switches Windows between light and dark mode at specific times or around local sunrise and sunset. You can choose Light, Dark or Automatic mode, add custom offsets, and let it handle sleep, clock and time-zone changes automatically.\n\nBuilt in C# with .NET 10 and Windows Forms, it updates apps, menus and system surfaces through the Windows Registry and native Win32 APIs. Solar times are calculated locally using NOAA equations, and the self-contained 64-bit installer needs no separate .NET installation, administrator access, background service or always-on internet connection.",
+    "tags": ["C#", ".NET 10", "Windows Forms", "Win32", "NOAA"],
+    "facts": [
+      { "label": "Platform", "value": "Windows 10 and 11 · 64-bit" },
+      { "label": "Modes", "value": "Light · Dark · Automatic" },
+      { "label": "Scheduling", "value": "Specific times · Sunrise/sunset · Custom offsets" },
+      { "label": "Packaging", "value": "Self-contained · Inno Setup" }
+    ],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "Download for Windows",
+        "url": "https://github.com/rmimpact/Darkenator_Windows/releases/latest/download/Darkenator-Setup.exe",
+        "primary": true
+      },
+      {
+        "label": "View Darkenator on GitHub ↗",
+        "url": "https://github.com/rmimpact/Darkenator_Windows",
+        "primary": false
+      }
+    ]
+  },
+  {
+    "id": "lab-check-app",
+    "order": 5,
     "title": "Labs Check App",
     "eyebrow": "Low-code operations app",
     "year": "2026",
@@ -209,7 +243,7 @@
   },
   {
     "id": "rem-ai",
-    "order": 5,
+    "order": 6,
     "title": "REM",
     "eyebrow": "Local-first Windows AI assistant",
     "year": "2026",

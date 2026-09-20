@@ -156,8 +156,42 @@
     ]
   },
   {
-    "id": "lab-check-app",
+    "id": "darkenator",
     "order": 4,
+    "title": "Darkenator",
+    "eyebrow": "Thèmes Windows automatiques",
+    "year": "2026",
+    "image": "/media/projects/darkenator-banner.png",
+    "imageAlt": "Illustration Darkenator d’un soleil et d’une lune passant d’une scène de jour lumineuse à une scène de nuit sombre",
+    "ogImage": "/media/projects/darkenator-banner.png",
+    "summary": "Une application Windows qui bascule tout le système entre les modes clair et sombre selon un horaire, le lever ou le coucher du soleil.",
+    "description": "Darkenator est une application légère dans la zone de notification Windows qui bascule le système entre les modes clair et sombre à des heures précises ou autour du lever et du coucher du soleil. Vous pouvez choisir le mode Clair, Sombre ou Automatique, ajouter des décalages personnalisés et la laisser gérer automatiquement la veille, l’horloge et les changements de fuseau horaire.\n\nCréée en C# avec .NET 10 et Windows Forms, elle met à jour les applications, les menus et les surfaces système via le Registre Windows et les API Win32 natives. Les heures solaires sont calculées localement avec les équations NOAA, et l’installateur 64 bits autonome ne nécessite ni installation séparée de .NET, ni droits administrateur, ni service en arrière-plan, ni connexion Internet permanente.",
+    "tags": ["C#", ".NET 10", "Windows Forms", "Win32", "NOAA"],
+    "facts": [
+      { "label": "Plateforme", "value": "Windows 10 et 11 · 64 bits" },
+      { "label": "Modes", "value": "Clair · Sombre · Automatique" },
+      { "label": "Planification", "value": "Heures précises · Lever/coucher du soleil · Décalages" },
+      { "label": "Installation", "value": "Autonome · Inno Setup" }
+    ],
+    "preview": {
+      "type": "image"
+    },
+    "links": [
+      {
+        "label": "Télécharger pour Windows",
+        "url": "https://github.com/rmimpact/Darkenator_Windows/releases/latest/download/Darkenator-Setup.exe",
+        "primary": true
+      },
+      {
+        "label": "Voir Darkenator sur GitHub ↗",
+        "url": "https://github.com/rmimpact/Darkenator_Windows",
+        "primary": false
+      }
+    ]
+  },
+  {
+    "id": "lab-check-app",
+    "order": 5,
     "title": "Labs Check App",
     "eyebrow": "Application opérationnelle low-code",
     "year": "2026",
@@ -209,7 +243,7 @@
   },
   {
     "id": "rem-ai",
-    "order": 5,
+    "order": 6,
     "title": "REM",
     "eyebrow": "Assistant Windows local",
     "year": "2026",

@@ -31,6 +31,7 @@ function rawProjectHtml(language, id) {
 }
 
 const fileDropHtml = rawProjectHtml("en", "filedrop");
+const darkenatorHtml = rawProjectHtml("en", "darkenator");
 const remHtml = rawProjectHtml("en", "rem-ai");
 const frenchFileDropHtml = rawProjectHtml("fr", "filedrop");
 const expectedFileDropDownloads = [
@@ -39,10 +40,17 @@ const expectedFileDropDownloads = [
 ];
 const englishFileDrop = enProjects.find(({ id }) => id === "filedrop");
 const frenchFileDrop = frProjects.find(({ id }) => id === "filedrop");
+const englishDarkenator = enProjects.find(({ id }) => id === "darkenator");
+const frenchDarkenator = frProjects.find(({ id }) => id === "darkenator");
 
 assert.ok(fileDropHtml.includes('<meta property="og:title" content="FileDrop — Remy Moscovitz">'));
 assert.ok(fileDropHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/filedrop-banner.png">'));
-assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260901-2" defer></script>'));
+assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260921-1" defer></script>'));
+assert.ok(darkenatorHtml.includes('<meta property="og:title" content="Darkenator — Remy Moscovitz">'));
+assert.ok(darkenatorHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/darkenator-banner.png">'));
+assert.strictEqual(englishDarkenator.links[0].url, "https://github.com/rmimpact/Darkenator_Windows/releases/latest/download/Darkenator-Setup.exe");
+assert.strictEqual(frenchDarkenator.links[0].url, englishDarkenator.links[0].url);
+assert.ok(!englishDarkenator.links.some(({ label }) => /mac/i.test(label)));
 assert.ok(remHtml.includes('<meta property="og:title" content="REM — Remy Moscovitz">'));
 assert.ok(remHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/rem-ai/Rem_Banner.png">'));
 assert.notStrictEqual(fileDropHtml.match(/<meta property="og:image" content="([^"]+)">/)[1], remHtml.match(/<meta property="og:image" content="([^"]+)">/)[1]);
