@@ -174,7 +174,17 @@
       { "label": "Packaging", "value": "Self-contained · Inno Setup" }
     ],
     "preview": {
-      "type": "image"
+      "type": "carousel",
+      "images": [
+        {
+          "src": "/media/projects/darkenator/light-mode.png",
+          "alt": "Darkenator settings in Windows light mode with automatic sunrise and sunset switching selected"
+        },
+        {
+          "src": "/media/projects/darkenator/dark-mode.png",
+          "alt": "Darkenator settings in Windows dark mode"
+        }
+      ]
     },
     "links": [
       {

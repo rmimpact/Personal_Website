@@ -45,12 +45,20 @@ const frenchDarkenator = frProjects.find(({ id }) => id === "darkenator");
 
 assert.ok(fileDropHtml.includes('<meta property="og:title" content="FileDrop — Remy Moscovitz">'));
 assert.ok(fileDropHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/filedrop-banner.png">'));
-assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260921-1" defer></script>'));
+assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260921-2" defer></script>'));
 assert.ok(darkenatorHtml.includes('<meta property="og:title" content="Darkenator — Remy Moscovitz">'));
 assert.ok(darkenatorHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/darkenator-banner.png">'));
 assert.strictEqual(englishDarkenator.links[0].url, "https://github.com/rmimpact/Darkenator_Windows/releases/latest/download/Darkenator-Setup.exe");
 assert.strictEqual(frenchDarkenator.links[0].url, englishDarkenator.links[0].url);
 assert.ok(!englishDarkenator.links.some(({ label }) => /mac/i.test(label)));
+assert.strictEqual(englishDarkenator.preview.type, "carousel");
+assert.deepStrictEqual(englishDarkenator.preview.images.map(({ src }) => src), [
+  "/media/projects/darkenator/light-mode.png",
+  "/media/projects/darkenator/dark-mode.png"
+]);
+for (const { src } of englishDarkenator.preview.images) {
+  assert.ok(fs.existsSync(path.join(root, src)), `Missing Darkenator carousel image: ${src}`);
+}
 assert.ok(remHtml.includes('<meta property="og:title" content="REM — Remy Moscovitz">'));
 assert.ok(remHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/rem-ai/Rem_Banner.png">'));
 assert.notStrictEqual(fileDropHtml.match(/<meta property="og:image" content="([^"]+)">/)[1], remHtml.match(/<meta property="og:image" content="([^"]+)">/)[1]);

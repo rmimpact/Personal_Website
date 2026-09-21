@@ -174,7 +174,17 @@
       { "label": "Installation", "value": "Autonome · Inno Setup" }
     ],
     "preview": {
-      "type": "image"
+      "type": "carousel",
+      "images": [
+        {
+          "src": "/media/projects/darkenator/light-mode.png",
+          "alt": "Paramètres de Darkenator en mode clair Windows avec le basculement automatique au lever et au coucher du soleil"
+        },
+        {
+          "src": "/media/projects/darkenator/dark-mode.png",
+          "alt": "Paramètres de Darkenator en mode sombre Windows"
+        }
+      ]
     },
     "links": [
       {
