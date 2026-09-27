@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260927-3" : "/projects/projects.json?v=20260927-3";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260927-5" : "/projects/projects.json?v=20260927-5";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 const SITE_ORIGIN = "https://remymoscovitz.com";
 const DEFAULT_PROJECT_OG_IMAGE = "/media/og-remy-portfolio.png";

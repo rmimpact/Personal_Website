@@ -10,13 +10,13 @@
     "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
     "ogImageAlt": "Converter King — conversion privée de fichiers sur Mac",
     "summary": "Une application Mac privée qui convertit les images et les fichiers multimédias directement sur l’appareil.",
-    "description": "Converter King rend la conversion de fichiers rapide et simple sur Mac. Déposez des fichiers ou des dossiers, choisissez le format et la qualité de sortie, puis convertissez le tout localement sans envoyer les originaux.\n\nL’application prend en charge les traitements par lots, le contrôle des métadonnées et les options sans perte. Elle inclut aussi un Image Studio, avec d’autres outils à venir. Un lien de téléchargement direct pour Mac sera ajouté ici prochainement.",
+    "description": "Converter King rend la conversion de fichiers rapide et simple sur Mac. Déposez des fichiers ou des dossiers, choisissez le format et la qualité de sortie, puis convertissez le tout localement sans envoyer les originaux.\n\nL’application prend en charge les traitements par lots, le contrôle des métadonnées et les options sans perte. Elle inclut aussi un Image Studio, avec d’autres outils à venir. La dernière version Mac est disponible au téléchargement ci-dessous.",
     "tags": ["macOS", "Conversion de fichiers", "Sur l’appareil", "Traitement par lots"],
     "facts": [
       { "label": "Plateforme", "value": "Mac" },
       { "label": "Confidentialité", "value": "Traitement 100 % sur l’appareil" },
       { "label": "Flux", "value": "Fichiers et dossiers · Traitement par lots" },
-      { "label": "Statut", "value": "Téléchargement direct bientôt disponible" }
+      { "label": "Statut", "value": "Disponible sur Mac" }
     ],
     "preview": {
       "type": "carousel",
@@ -48,10 +48,9 @@
     },
     "links": [
       {
-        "label": "Téléchargement Mac bientôt disponible",
-        "url": "",
-        "primary": true,
-        "disabled": true
+        "label": "Télécharger pour Mac",
+        "url": "https://github.com/rmimpact/ConverterKing-Releases/releases/latest/download/ConverterKing.dmg",
+        "primary": true
       }
     ]
   },

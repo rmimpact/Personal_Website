@@ -10,13 +10,13 @@
     "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
     "ogImageAlt": "Converter King — private on-device file conversion for Mac",
     "summary": "A private, on-device Mac app for converting images and common media files.",
-    "description": "Converter King makes file conversion quick and straightforward on Mac. Drop in files or folders, choose the output format and quality, then convert everything locally without uploading the originals.\n\nIt supports batch workflows, metadata control and lossless options, with an Image Studio included and more tools on the way. A direct Mac download will be added here soon.",
+    "description": "Converter King makes file conversion quick and straightforward on Mac. Drop in files or folders, choose the output format and quality, then convert everything locally without uploading the originals.\n\nIt supports batch workflows, metadata control and lossless options, with an Image Studio included and more tools on the way. The latest Mac release is available to download below.",
     "tags": ["macOS", "File conversion", "On-device", "Batch processing"],
     "facts": [
       { "label": "Platform", "value": "Mac" },
       { "label": "Privacy", "value": "100% on-device processing" },
       { "label": "Workflow", "value": "Files and folders · Batch ready" },
-      { "label": "Status", "value": "Direct download coming soon" }
+      { "label": "Status", "value": "Available for Mac" }
     ],
     "preview": {
       "type": "carousel",
@@ -48,10 +48,9 @@
     },
     "links": [
       {
-        "label": "Mac download coming soon",
-        "url": "",
-        "primary": true,
-        "disabled": true
+        "label": "Download for Mac",
+        "url": "https://github.com/rmimpact/ConverterKing-Releases/releases/latest/download/ConverterKing.dmg",
+        "primary": true
       }
     ]
   },
