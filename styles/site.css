@@ -2237,7 +2237,27 @@ h3 {
   }
 
   .project-carousel--desktop .project-carousel__track {
-    grid-auto-columns: min(82vw, 720px);
+    grid-auto-columns: calc(100% - 20px);
+    gap: 10px;
+    padding: 16px 10px;
+  }
+
+  .project-carousel--desktop {
+    margin-inline: -8px;
+    border-radius: 18px;
+  }
+
+  .project-carousel--desktop .project-carousel__button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .project-carousel--desktop .project-carousel__button--previous {
+    left: 8px;
+  }
+
+  .project-carousel--desktop .project-carousel__button--next {
+    right: 8px;
   }
 
   .project-carousel__footer {

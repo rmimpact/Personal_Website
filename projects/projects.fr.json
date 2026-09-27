@@ -5,9 +5,9 @@
     "title": "Converter King",
     "eyebrow": "Convertisseur de fichiers privé pour Mac",
     "year": "2026",
-    "image": "/media/projects/converter-king/converter-king-banner.png",
+    "image": "/media/projects/converter-king/converter-king-banner-v2.png",
     "imageAlt": "Icône couronnée de Converter King à côté de l’interface sombre de conversion de fichiers",
-    "ogImage": "/media/projects/converter-king/converter-king-banner.png",
+    "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
     "ogImageAlt": "Converter King — conversion privée de fichiers sur Mac",
     "summary": "Une application Mac privée qui convertit les images et les fichiers multimédias directement sur l’appareil.",
     "description": "Converter King rend la conversion de fichiers rapide et simple sur Mac. Déposez des fichiers ou des dossiers, choisissez le format et la qualité de sortie, puis convertissez le tout localement sans envoyer les originaux.\n\nL’application prend en charge les traitements par lots, le contrôle des métadonnées et les options sans perte. Elle inclut aussi un Image Studio, avec d’autres outils à venir. Un lien de téléchargement direct pour Mac sera ajouté ici prochainement.",
@@ -25,7 +25,7 @@
         {
           "type": "video",
           "src": "/media/projects/converter-king/converter-king-demo.mp4",
-          "poster": "/media/projects/converter-king/converter-king-banner.png",
+          "poster": "/media/projects/converter-king/converter-king-banner-v2.png",
           "alt": "Démonstration de l’application Mac Converter King"
         },
         {

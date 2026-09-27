@@ -5,9 +5,9 @@
     "title": "Converter King",
     "eyebrow": "Private Mac file converter",
     "year": "2026",
-    "image": "/media/projects/converter-king/converter-king-banner.png",
+    "image": "/media/projects/converter-king/converter-king-banner-v2.png",
     "imageAlt": "Converter King crown icon beside the dark navy file-conversion interface",
-    "ogImage": "/media/projects/converter-king/converter-king-banner.png",
+    "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
     "ogImageAlt": "Converter King — private on-device file conversion for Mac",
     "summary": "A private, on-device Mac app for converting images and common media files.",
     "description": "Converter King makes file conversion quick and straightforward on Mac. Drop in files or folders, choose the output format and quality, then convert everything locally without uploading the originals.\n\nIt supports batch workflows, metadata control and lossless options, with an Image Studio included and more tools on the way. A direct Mac download will be added here soon.",
@@ -25,7 +25,7 @@
         {
           "type": "video",
           "src": "/media/projects/converter-king/converter-king-demo.mp4",
-          "poster": "/media/projects/converter-king/converter-king-banner.png",
+          "poster": "/media/projects/converter-king/converter-king-banner-v2.png",
           "alt": "Converter King Mac app demonstration"
         },
         {
