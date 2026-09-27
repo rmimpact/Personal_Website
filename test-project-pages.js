@@ -31,6 +31,7 @@ function rawProjectHtml(language, id) {
 }
 
 const fileDropHtml = rawProjectHtml("en", "filedrop");
+const converterKingHtml = rawProjectHtml("en", "converter-king");
 const darkenatorHtml = rawProjectHtml("en", "darkenator");
 const remHtml = rawProjectHtml("en", "rem-ai");
 const frenchFileDropHtml = rawProjectHtml("fr", "filedrop");
@@ -39,13 +40,24 @@ const expectedFileDropDownloads = [
   "https://github.com/rmimpact/FileDrop/releases/latest/download/FileDrop-Windows-x64-Setup.exe"
 ];
 const englishFileDrop = enProjects.find(({ id }) => id === "filedrop");
+const englishConverterKing = enProjects.find(({ id }) => id === "converter-king");
+const frenchConverterKing = frProjects.find(({ id }) => id === "converter-king");
 const frenchFileDrop = frProjects.find(({ id }) => id === "filedrop");
 const englishDarkenator = enProjects.find(({ id }) => id === "darkenator");
 const frenchDarkenator = frProjects.find(({ id }) => id === "darkenator");
 
 assert.ok(fileDropHtml.includes('<meta property="og:title" content="FileDrop — Remy Moscovitz">'));
 assert.ok(fileDropHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/filedrop-banner.png">'));
-assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260921-2" defer></script>'));
+assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260927-2" defer></script>'));
+assert.ok(converterKingHtml.includes('<meta property="og:title" content="Converter King — Remy Moscovitz">'));
+assert.ok(converterKingHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/converter-king/converter-king-banner.png">'));
+assert.strictEqual(englishConverterKing.preview.type, "carousel");
+assert.strictEqual(englishConverterKing.preview.layout, "desktop");
+assert.strictEqual(englishConverterKing.preview.images[0].type, "video");
+assert.strictEqual(frenchConverterKing.preview.images[0].src, englishConverterKing.preview.images[0].src);
+for (const { src } of englishConverterKing.preview.images) {
+  assert.ok(fs.existsSync(path.join(root, src)), `Missing Converter King gallery media: ${src}`);
+}
 assert.ok(darkenatorHtml.includes('<meta property="og:title" content="Darkenator — Remy Moscovitz">'));
 assert.ok(darkenatorHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/darkenator-banner.png">'));
 assert.strictEqual(englishDarkenator.links[0].url, "https://github.com/rmimpact/Darkenator_Windows/releases/latest/download/Darkenator-Setup.exe");

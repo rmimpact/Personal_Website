@@ -1558,7 +1558,8 @@ h3 {
   transform: translateY(-4px);
 }
 
-.project-carousel__slide img {
+.project-carousel__slide img,
+.project-carousel__slide video {
   display: block;
   width: 100%;
   height: 100%;
@@ -1654,6 +1655,20 @@ h3 {
   width: 26px;
   background: var(--accent);
   border-radius: 999px;
+}
+
+.project-carousel--desktop .project-carousel__track {
+  grid-auto-columns: min(82%, 980px);
+  align-items: center;
+}
+
+.project-carousel--desktop .project-carousel__slide {
+  aspect-ratio: 2330 / 1440;
+}
+
+.project-carousel--desktop .project-carousel__slide img,
+.project-carousel--desktop .project-carousel__slide video {
+  object-fit: cover;
 }
 
 /* REM project showcase */
@@ -2219,6 +2234,10 @@ h3 {
 
   .project-carousel__slide {
     border-radius: 14px;
+  }
+
+  .project-carousel--desktop .project-carousel__track {
+    grid-auto-columns: min(82vw, 720px);
   }
 
   .project-carousel__footer {

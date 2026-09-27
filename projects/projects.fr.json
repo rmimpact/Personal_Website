@@ -1,7 +1,63 @@
 [
   {
-    "id": "ephemeral-geo",
+    "id": "converter-king",
     "order": 0,
+    "title": "Converter King",
+    "eyebrow": "Convertisseur de fichiers privé pour Mac",
+    "year": "2026",
+    "image": "/media/projects/converter-king/converter-king-banner.png",
+    "imageAlt": "Icône couronnée de Converter King à côté de l’interface sombre de conversion de fichiers",
+    "ogImage": "/media/projects/converter-king/converter-king-banner.png",
+    "ogImageAlt": "Converter King — conversion privée de fichiers sur Mac",
+    "summary": "Une application Mac privée qui convertit les images et les fichiers multimédias directement sur l’appareil.",
+    "description": "Converter King rend la conversion de fichiers rapide et simple sur Mac. Déposez des fichiers ou des dossiers, choisissez le format et la qualité de sortie, puis convertissez le tout localement sans envoyer les originaux.\n\nL’application prend en charge les traitements par lots, le contrôle des métadonnées et les options sans perte. Elle inclut aussi un Image Studio, avec d’autres outils à venir. Un lien de téléchargement direct pour Mac sera ajouté ici prochainement.",
+    "tags": ["macOS", "Conversion de fichiers", "Sur l’appareil", "Traitement par lots"],
+    "facts": [
+      { "label": "Plateforme", "value": "Mac" },
+      { "label": "Confidentialité", "value": "Traitement 100 % sur l’appareil" },
+      { "label": "Flux", "value": "Fichiers et dossiers · Traitement par lots" },
+      { "label": "Statut", "value": "Téléchargement direct bientôt disponible" }
+    ],
+    "preview": {
+      "type": "carousel",
+      "layout": "desktop",
+      "images": [
+        {
+          "type": "video",
+          "src": "/media/projects/converter-king/converter-king-demo.mp4",
+          "poster": "/media/projects/converter-king/converter-king-banner.png",
+          "alt": "Démonstration de l’application Mac Converter King"
+        },
+        {
+          "src": "/media/projects/converter-king/quick-convert.png",
+          "alt": "Écran de conversion rapide de Converter King en mode sombre"
+        },
+        {
+          "src": "/media/projects/converter-king/ready-to-convert.png",
+          "alt": "Converter King avec une image JPEG prête à être convertie"
+        },
+        {
+          "src": "/media/projects/converter-king/conversion-complete.png",
+          "alt": "Converter King affichant une conversion locale terminée"
+        },
+        {
+          "src": "/media/projects/converter-king/light-mode.png",
+          "alt": "Écran de conversion rapide de Converter King en mode clair"
+        }
+      ]
+    },
+    "links": [
+      {
+        "label": "Téléchargement Mac bientôt disponible",
+        "url": "",
+        "primary": true,
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "id": "ephemeral-geo",
+    "order": 1,
     "title": "Ephemeral Geo",
     "eyebrow": "Application iPhone géolocalisée",
     "year": "2026",
@@ -66,7 +122,7 @@
   },
   {
     "id": "mms-psychology",
-    "order": 1,
+    "order": 2,
     "title": "MMS Psychology",
     "eyebrow": "Site client en ligne",
     "year": "2025",
@@ -90,7 +146,7 @@
   },
   {
     "id": "football-management-panel",
-    "order": 2,
+    "order": 3,
     "title": "Football Management Panel",
     "eyebrow": "Application Java",
     "year": "2025",
@@ -118,7 +174,7 @@
   },
   {
     "id": "filedrop",
-    "order": 3,
+    "order": 4,
     "title": "FileDrop",
     "eyebrow": "Partage de fichiers multiplateforme",
     "year": "2026",
@@ -157,7 +213,7 @@
   },
   {
     "id": "darkenator",
-    "order": 4,
+    "order": 5,
     "title": "Darkenator",
     "eyebrow": "Thèmes Windows automatiques",
     "year": "2026",
@@ -201,7 +257,7 @@
   },
   {
     "id": "lab-check-app",
-    "order": 5,
+    "order": 6,
     "title": "Labs Check App",
     "eyebrow": "Application opérationnelle low-code",
     "year": "2026",
@@ -253,7 +309,7 @@
   },
   {
     "id": "rem-ai",
-    "order": 6,
+    "order": 7,
     "title": "REM",
     "eyebrow": "Assistant Windows local",
     "year": "2026",

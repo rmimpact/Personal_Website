@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260921-2" : "/projects/projects.json?v=20260921-2";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260927-2" : "/projects/projects.json?v=20260927-2";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 const SITE_ORIGIN = "https://remymoscovitz.com";
 const DEFAULT_PROJECT_OG_IMAGE = "/media/og-remy-portfolio.png";
@@ -18,7 +18,7 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "site web",
   projectNotFound: "Projet introuvable",
   projectMissingTitle: "Ce projet n’est pas disponible.",
-  projectMissingText: "Choisissez l’un des cinq projets actuels dans l’index des projets.",
+  projectMissingText: "Choisissez l’un des huit projets actuels dans l’index des projets.",
   viewProjects: "Voir les projets",
   selectedProject: "Projet sélectionné",
   projectStory: "À propos du projet",
@@ -45,7 +45,7 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "website",
   projectNotFound: "Project not found",
   projectMissingTitle: "That project isn’t here.",
-  projectMissingText: "Choose one of the five current projects from the project index.",
+  projectMissingText: "Choose one of the eight current projects from the project index.",
   viewProjects: "View projects",
   selectedProject: "Selected project",
   projectStory: "Project story",
@@ -280,18 +280,32 @@ function createProjectCarousel(project, options = {}) {
     slide.className = "project-carousel__slide";
     slide.dataset.index = String(index);
 
-    const image = document.createElement("img");
-    image.src = item.src;
-    image.alt = item.alt || "";
-    image.decoding = "async";
-    image.loading = index === 0 ? "eager" : "lazy";
-    image.addEventListener("error", () => {
+    const media = item.type === "video" ? document.createElement("video") : document.createElement("img");
+    media.src = item.src;
+
+    if (media instanceof HTMLVideoElement) {
+      media.autoplay = true;
+      media.muted = true;
+      media.defaultMuted = true;
+      media.loop = true;
+      media.playsInline = true;
+      media.controls = true;
+      media.preload = index === 0 ? "auto" : "metadata";
+      if (item.poster) media.poster = item.poster;
+      media.setAttribute("aria-label", item.alt || `${project.title} video preview`);
+    } else {
+      media.alt = item.alt || "";
+      media.decoding = "async";
+      media.loading = index === 0 ? "eager" : "lazy";
+    }
+
+    media.addEventListener("error", () => {
       slide.classList.add("project-carousel__slide--error");
       slide.dataset.errorLabel = UI_TEXT.previewUnavailable;
-      image.remove();
+      media.remove();
     }, { once: true });
 
-    slide.appendChild(image);
+    slide.appendChild(media);
     track.appendChild(slide);
     return slide;
   });
@@ -309,6 +323,14 @@ function createProjectCarousel(project, options = {}) {
     counter.textContent = `${UI_TEXT.image} ${activeIndex + 1} ${UI_TEXT.of} ${images.length}`;
     slides.forEach((slide, slideIndex) => {
       slide.classList.toggle("project-carousel__slide--active", slideIndex === activeIndex);
+      const video = slide.querySelector("video");
+      if (!video) return;
+
+      if (slideIndex === activeIndex) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
     });
     dotButtons.forEach((dot, dotIndex) => {
       dot.setAttribute("aria-current", dotIndex === activeIndex ? "true" : "false");
@@ -494,7 +516,7 @@ function createProjectVisual(project) {
   }
 
   if (project.preview?.type === "carousel" && Array.isArray(project.preview.images) && project.preview.images.length) {
-    return createProjectCarousel(project);
+    return createProjectCarousel(project, { layout: project.preview.layout });
   }
 
   if (project.preview?.type === "iframe" && project.preview.url) {
