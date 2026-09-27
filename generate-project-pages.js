@@ -17,7 +17,7 @@ const path = require("path");
 
 const SITE_URL = "https://remymoscovitz.com";
 const ROOT = __dirname;
-const ASSET_VERSION = "20260927-3";
+const ASSET_VERSION = "20260927-4";
 const SCRIPT_VERSION = "20260927-3";
 const DEFAULT_DESCRIPTION = "A project from the software engineering portfolio of Remy Moscovitz.";
 const DEFAULT_OG_IMAGE = "/media/og-remy-portfolio.png";

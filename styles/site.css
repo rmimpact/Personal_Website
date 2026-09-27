@@ -2306,6 +2306,37 @@ h3 {
   }
 }
 
+@media (max-width: 600px) {
+  .project-carousel--desktop {
+    margin-inline: -8px;
+    border-radius: 18px;
+  }
+
+  .project-carousel--desktop .project-carousel__track {
+    grid-auto-columns: calc(100vw - 48px);
+    gap: 12px;
+    padding: 16px 12px;
+    scroll-padding-inline: 12px;
+  }
+
+  .project-carousel--desktop .project-carousel__slide {
+    border-radius: 12px;
+  }
+
+  .project-carousel--desktop .project-carousel__button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .project-carousel--desktop .project-carousel__button--previous {
+    left: 8px;
+  }
+
+  .project-carousel--desktop .project-carousel__button--next {
+    right: 8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
