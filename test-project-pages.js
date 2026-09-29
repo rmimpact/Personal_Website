@@ -49,9 +49,9 @@ const frenchDarkenator = frProjects.find(({ id }) => id === "darkenator");
 
 assert.ok(fileDropHtml.includes('<meta property="og:title" content="FileDrop — Remy Moscovitz">'));
 assert.ok(fileDropHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/filedrop-banner.png">'));
-assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260927-5" defer></script>'));
+assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260929-2" defer></script>'));
 assert.ok(converterKingHtml.includes('<meta property="og:title" content="Converter King — Remy Moscovitz">'));
-assert.ok(converterKingHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/converter-king/converter-king-banner-v2.png">'));
+assert.ok(converterKingHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/converter-king/converter-king-banner-v4.png">'));
 assert.strictEqual(englishConverterKing.preview.type, "carousel");
 assert.strictEqual(englishConverterKing.preview.layout, "desktop");
 assert.strictEqual(englishConverterKing.preview.images[0].type, "video");

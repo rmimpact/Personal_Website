@@ -5,9 +5,9 @@
     "title": "Converter King",
     "eyebrow": "Private Mac file converter",
     "year": "2026",
-    "image": "/media/projects/converter-king/converter-king-banner-v2.png",
-    "imageAlt": "Converter King crown icon beside the dark navy file-conversion interface",
-    "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
+    "image": "/media/projects/converter-king/converter-king-banner-v4.png",
+    "imageAlt": "Converter King app icon and wordmark on a bright white banner",
+    "ogImage": "/media/projects/converter-king/converter-king-banner-v4.png",
     "ogImageAlt": "Converter King — private on-device file conversion for Mac",
     "summary": "A private, on-device Mac app for converting images and common media files.",
     "description": "Converter King makes file conversion quick and straightforward on Mac. Drop in files or folders, choose the output format and quality, then convert everything locally without uploading the originals.\n\nIt supports batch workflows, metadata control and lossless options, with an Image Studio included and more tools on the way. The latest Mac release is available to download below.",
@@ -25,24 +25,56 @@
         {
           "type": "video",
           "src": "/media/projects/converter-king/converter-king-demo.mp4",
-          "poster": "/media/projects/converter-king/converter-king-banner-v2.png",
+          "poster": "/media/projects/converter-king/converter-king-banner-v4.png",
           "alt": "Converter King Mac app demonstration"
         },
         {
-          "src": "/media/projects/converter-king/quick-convert.png",
-          "alt": "Converter King quick-convert screen in dark mode"
+          "src": "/media/projects/converter-king/gallery/quick-convert-light-ready.jpg",
+          "alt": "Converter King quick conversion ready in light mode"
         },
         {
-          "src": "/media/projects/converter-king/ready-to-convert.png",
-          "alt": "Converter King with a JPEG ready for conversion"
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark-ready.jpg",
+          "alt": "Converter King quick conversion ready in dark mode"
         },
         {
-          "src": "/media/projects/converter-king/conversion-complete.png",
-          "alt": "Converter King showing a completed local conversion"
+          "src": "/media/projects/converter-king/gallery/quick-convert-light-complete.jpg",
+          "alt": "Converter King conversion-complete message in light mode"
         },
         {
-          "src": "/media/projects/converter-king/light-mode.png",
-          "alt": "Converter King quick-convert screen in light mode"
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark-complete.jpg",
+          "alt": "Converter King conversion-complete message in dark mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/quick-convert-light.jpg",
+          "alt": "Converter King Quick Convert workspace in light mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark.jpg",
+          "alt": "Converter King Quick Convert workspace in dark mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/image-studio-light.jpg",
+          "alt": "Converter King Image Studio in light mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/image-studio-dark.jpg",
+          "alt": "Converter King Image Studio in dark mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/video-to-gif-light.jpg",
+          "alt": "Converter King Video to GIF tool in light mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/video-to-gif-dark.jpg",
+          "alt": "Converter King Video to GIF tool in dark mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/compression-light.jpg",
+          "alt": "Converter King Compression workspace in light mode"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/compression-dark.jpg",
+          "alt": "Converter King Compression workspace in dark mode"
         }
       ]
     },

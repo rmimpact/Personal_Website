@@ -5,9 +5,9 @@
     "title": "Converter King",
     "eyebrow": "Convertisseur de fichiers privé pour Mac",
     "year": "2026",
-    "image": "/media/projects/converter-king/converter-king-banner-v2.png",
-    "imageAlt": "Icône couronnée de Converter King à côté de l’interface sombre de conversion de fichiers",
-    "ogImage": "/media/projects/converter-king/converter-king-banner-v2.png",
+    "image": "/media/projects/converter-king/converter-king-banner-v4.png",
+    "imageAlt": "Icône et mot-symbole de Converter King sur une bannière blanche lumineuse",
+    "ogImage": "/media/projects/converter-king/converter-king-banner-v4.png",
     "ogImageAlt": "Converter King — conversion privée de fichiers sur Mac",
     "summary": "Une application Mac privée qui convertit les images et les fichiers multimédias directement sur l’appareil.",
     "description": "Converter King rend la conversion de fichiers rapide et simple sur Mac. Déposez des fichiers ou des dossiers, choisissez le format et la qualité de sortie, puis convertissez le tout localement sans envoyer les originaux.\n\nL’application prend en charge les traitements par lots, le contrôle des métadonnées et les options sans perte. Elle inclut aussi un Image Studio, avec d’autres outils à venir. La dernière version Mac est disponible au téléchargement ci-dessous.",
@@ -25,24 +25,56 @@
         {
           "type": "video",
           "src": "/media/projects/converter-king/converter-king-demo.mp4",
-          "poster": "/media/projects/converter-king/converter-king-banner-v2.png",
+          "poster": "/media/projects/converter-king/converter-king-banner-v4.png",
           "alt": "Démonstration de l’application Mac Converter King"
         },
         {
-          "src": "/media/projects/converter-king/quick-convert.png",
-          "alt": "Écran de conversion rapide de Converter King en mode sombre"
+          "src": "/media/projects/converter-king/gallery/quick-convert-light-ready.jpg",
+          "alt": "Conversion rapide prête dans Converter King en mode clair"
         },
         {
-          "src": "/media/projects/converter-king/ready-to-convert.png",
-          "alt": "Converter King avec une image JPEG prête à être convertie"
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark-ready.jpg",
+          "alt": "Conversion rapide prête dans Converter King en mode sombre"
         },
         {
-          "src": "/media/projects/converter-king/conversion-complete.png",
-          "alt": "Converter King affichant une conversion locale terminée"
+          "src": "/media/projects/converter-king/gallery/quick-convert-light-complete.jpg",
+          "alt": "Message de conversion terminée dans Converter King en mode clair"
         },
         {
-          "src": "/media/projects/converter-king/light-mode.png",
-          "alt": "Écran de conversion rapide de Converter King en mode clair"
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark-complete.jpg",
+          "alt": "Message de conversion terminée dans Converter King en mode sombre"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/quick-convert-light.jpg",
+          "alt": "Espace Conversion rapide de Converter King en mode clair"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/quick-convert-dark.jpg",
+          "alt": "Espace Conversion rapide de Converter King en mode sombre"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/image-studio-light.jpg",
+          "alt": "Image Studio de Converter King en mode clair"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/image-studio-dark.jpg",
+          "alt": "Image Studio de Converter King en mode sombre"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/video-to-gif-light.jpg",
+          "alt": "Outil Vidéo vers GIF de Converter King en mode clair"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/video-to-gif-dark.jpg",
+          "alt": "Outil Vidéo vers GIF de Converter King en mode sombre"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/compression-light.jpg",
+          "alt": "Espace Compression de Converter King en mode clair"
+        },
+        {
+          "src": "/media/projects/converter-king/gallery/compression-dark.jpg",
+          "alt": "Espace Compression de Converter King en mode sombre"
         }
       ]
     },
