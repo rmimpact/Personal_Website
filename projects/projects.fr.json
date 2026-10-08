@@ -1,7 +1,54 @@
 [
   {
-    "id": "converter-king",
+    "id": "finance-ai",
     "order": 0,
+    "title": "Finance AI",
+    "eyebrow": "Finances personnelles guidées par l’IA",
+    "year": "2026",
+    "image": "/media/projects/finance-ai/finance-ai-banner.png",
+    "imageAlt": "Icône et mot-symbole Finance AI sur une bannière violet foncé",
+    "ogImage": "/media/projects/finance-ai/finance-ai-banner.png",
+    "ogImageAlt": "Finance AI — dépenses, placements et décisions d’achat guidés par l’IA",
+    "summary": "Une application iPhone pour gérer ses dépenses et ses placements, avec des conseils IA avant un achat.",
+    "description": "Finance AI réunit les dépenses, les placements, les objectifs et les décisions financières du quotidien dans une seule application iPhone. L’accueil affiche la situation nette et un montant clair disponible sans risque, tandis que des écrans dédiés rendent les comptes, les placements, les dépenses hebdomadaires et les objectifs à long terme faciles à comprendre.\n\nL’espace Ask s’appuie sur l’activité récente et les données des comptes pour répondre à des questions comme : cet achat rentre-t-il dans le budget, où est parti l’argent ce mois-ci et quels points méritent de l’attention ? L’objectif est de transformer les données financières en une réponse pratique avant de dépenser, plutôt que d’ajouter un tableau de bord à interpréter seul.",
+    "tags": ["iPhone", "Conseils IA", "Dépenses", "Placements", "Objectifs"],
+    "facts": [
+      { "label": "Plateforme", "value": "iPhone" },
+      { "label": "Priorités", "value": "Dépenses · Placements · Objectifs" },
+      { "label": "IA", "value": "Conseils d’achat et bilans financiers" },
+      { "label": "Statut", "value": "En développement" }
+    ],
+    "preview": {
+      "type": "carousel",
+      "layout": "mobile",
+      "images": [
+        {
+          "src": "/media/projects/finance-ai/screens/home.png",
+          "alt": "Accueil de Finance AI avec situation nette, montant disponible et activité récente"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/accounts.png",
+          "alt": "Comptes et placements dans Finance AI"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/ask.png",
+          "alt": "Écran Ask de Finance AI avec des questions sur les achats et les dépenses"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/expenses.png",
+          "alt": "Dépenses hebdomadaires et transactions récentes dans Finance AI"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/goals.png",
+          "alt": "Objectifs de Finance AI avec la progression vers un portefeuille de placements"
+        }
+      ]
+    },
+    "links": []
+  },
+  {
+    "id": "converter-king",
+    "order": 1,
     "title": "Converter King",
     "eyebrow": "Convertisseur de fichiers privé pour Mac",
     "year": "2026",
@@ -88,7 +135,7 @@
   },
   {
     "id": "ephemeral-geo",
-    "order": 1,
+    "order": 2,
     "title": "Ephemeral Geo",
     "eyebrow": "Application iPhone géolocalisée",
     "year": "2026",
@@ -153,7 +200,7 @@
   },
   {
     "id": "mms-psychology",
-    "order": 2,
+    "order": 3,
     "title": "MMS Psychology",
     "eyebrow": "Site client en ligne",
     "year": "2025",
@@ -177,7 +224,7 @@
   },
   {
     "id": "football-management-panel",
-    "order": 3,
+    "order": 4,
     "title": "Football Management Panel",
     "eyebrow": "Application Java",
     "year": "2025",
@@ -205,7 +252,7 @@
   },
   {
     "id": "filedrop",
-    "order": 4,
+    "order": 5,
     "title": "FileDrop",
     "eyebrow": "Partage de fichiers multiplateforme",
     "year": "2026",
@@ -244,7 +291,7 @@
   },
   {
     "id": "darkenator",
-    "order": 5,
+    "order": 6,
     "title": "Darkenator",
     "eyebrow": "Thèmes Windows automatiques",
     "year": "2026",
@@ -288,7 +335,7 @@
   },
   {
     "id": "lab-check-app",
-    "order": 6,
+    "order": 7,
     "title": "Labs Check App",
     "eyebrow": "Application opérationnelle low-code",
     "year": "2026",
@@ -340,7 +387,7 @@
   },
   {
     "id": "rem-ai",
-    "order": 7,
+    "order": 8,
     "title": "REM",
     "eyebrow": "Assistant Windows local",
     "year": "2026",

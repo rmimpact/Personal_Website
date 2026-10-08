@@ -1,5 +1,5 @@
 const IS_FRENCH = document.documentElement.lang.toLowerCase().startsWith("fr");
-const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20260929-2" : "/projects/projects.json?v=20260929-2";
+const PROJECTS_ENDPOINT = IS_FRENCH ? "/projects/projects.fr.json?v=20261009-1" : "/projects/projects.json?v=20261009-1";
 const PROJECT_INDEX_PATH = IS_FRENCH ? "/fr/projects/" : "/projects/";
 const SITE_ORIGIN = "https://remymoscovitz.com";
 const DEFAULT_PROJECT_OG_IMAGE = "/media/og-remy-portfolio.png";
@@ -18,7 +18,7 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "site web",
   projectNotFound: "Projet introuvable",
   projectMissingTitle: "Ce projet n’est pas disponible.",
-  projectMissingText: "Choisissez l’un des huit projets actuels dans l’index des projets.",
+  projectMissingText: "Choisissez l’un des neuf projets actuels dans l’index des projets.",
   viewProjects: "Voir les projets",
   selectedProject: "Projet sélectionné",
   projectStory: "À propos du projet",
@@ -45,7 +45,7 @@ const UI_TEXT = IS_FRENCH ? {
   websiteTitle: "website",
   projectNotFound: "Project not found",
   projectMissingTitle: "That project isn’t here.",
-  projectMissingText: "Choose one of the eight current projects from the project index.",
+  projectMissingText: "Choose one of the nine current projects from the project index.",
   viewProjects: "View projects",
   selectedProject: "Selected project",
   projectStory: "Project story",

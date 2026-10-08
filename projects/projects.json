@@ -1,7 +1,54 @@
 [
   {
-    "id": "converter-king",
+    "id": "finance-ai",
     "order": 0,
+    "title": "Finance AI",
+    "eyebrow": "AI-guided personal finance",
+    "year": "2026",
+    "image": "/media/projects/finance-ai/finance-ai-banner.png",
+    "imageAlt": "Finance AI app icon and wordmark on a deep violet banner",
+    "ogImage": "/media/projects/finance-ai/finance-ai-banner.png",
+    "ogImageAlt": "Finance AI — AI-guided spending, investments and purchase decisions",
+    "summary": "An iPhone app for managing spending and investments with AI guidance on what is safe to buy.",
+    "description": "Finance AI brings spending, investments, goals and everyday money decisions into one iPhone app. The home screen shows your net position and a clear safe-to-spend figure, while dedicated views keep accounts, investments, weekly expenses and longer-term goals easy to understand.\n\nThe Ask experience uses recent activity and account data to help with questions such as whether a purchase fits the budget, where money went this month and what needs attention. The aim is to turn financial data into a practical answer before you spend, rather than another dashboard to interpret on your own.",
+    "tags": ["iPhone", "AI guidance", "Spending", "Investments", "Goals"],
+    "facts": [
+      { "label": "Platform", "value": "iPhone" },
+      { "label": "Focus", "value": "Spending · Investments · Goals" },
+      { "label": "AI", "value": "Purchase guidance and financial check-ins" },
+      { "label": "Status", "value": "In development" }
+    ],
+    "preview": {
+      "type": "carousel",
+      "layout": "mobile",
+      "images": [
+        {
+          "src": "/media/projects/finance-ai/screens/home.png",
+          "alt": "Finance AI home screen with net position, safe-to-spend guidance and recent activity"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/accounts.png",
+          "alt": "Finance AI accounts screen with cash accounts and investment holdings"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/ask.png",
+          "alt": "Finance AI Ask screen with AI prompts for purchase and spending guidance"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/expenses.png",
+          "alt": "Finance AI expenses screen with a weekly spending chart and recent transactions"
+        },
+        {
+          "src": "/media/projects/finance-ai/screens/goals.png",
+          "alt": "Finance AI goals screen with savings progress toward an investment portfolio"
+        }
+      ]
+    },
+    "links": []
+  },
+  {
+    "id": "converter-king",
+    "order": 1,
     "title": "Converter King",
     "eyebrow": "Private Mac file converter",
     "year": "2026",
@@ -88,7 +135,7 @@
   },
   {
     "id": "ephemeral-geo",
-    "order": 1,
+    "order": 2,
     "title": "Ephemeral Geo",
     "eyebrow": "Location-based iPhone app",
     "year": "2026",
@@ -153,7 +200,7 @@
   },
   {
     "id": "mms-psychology",
-    "order": 2,
+    "order": 3,
     "title": "MMS Psychology",
     "eyebrow": "Live client website",
     "year": "2025",
@@ -177,7 +224,7 @@
   },
   {
     "id": "football-management-panel",
-    "order": 3,
+    "order": 4,
     "title": "Football Management Panel",
     "eyebrow": "Java application",
     "year": "2025",
@@ -205,7 +252,7 @@
   },
   {
     "id": "filedrop",
-    "order": 4,
+    "order": 5,
     "title": "FileDrop",
     "eyebrow": "Cross-platform file sharing",
     "year": "2026",
@@ -244,7 +291,7 @@
   },
   {
     "id": "darkenator",
-    "order": 5,
+    "order": 6,
     "title": "Darkenator",
     "eyebrow": "Automatic Windows themes",
     "year": "2026",
@@ -288,7 +335,7 @@
   },
   {
     "id": "lab-check-app",
-    "order": 6,
+    "order": 7,
     "title": "Labs Check App",
     "eyebrow": "Low-code operations app",
     "year": "2026",
@@ -340,7 +387,7 @@
   },
   {
     "id": "rem-ai",
-    "order": 7,
+    "order": 8,
     "title": "REM",
     "eyebrow": "Local-first Windows AI assistant",
     "year": "2026",

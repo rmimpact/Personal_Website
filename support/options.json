@@ -1,10 +1,15 @@
 {
   "apps": [
+    { "id": "finance-ai", "name": "Finance AI" },
+    { "id": "converter-king", "name": "Converter King" },
     { "id": "ephemeral-geo", "name": "Ephemeral Geo" },
+    { "id": "mms-psychology", "name": "MMS Psychology" },
+    { "id": "football-management-panel", "name": "Football Management Panel" },
     { "id": "filedrop", "name": "FileDrop" },
-    { "id": "labs-check-app", "name": "Labs Check App" },
-    { "id": "rem", "name": "REM" },
-    { "id": "other", "name": "Other app" }
+    { "id": "darkenator", "name": "Darkenator" },
+    { "id": "lab-check-app", "name": "Labs Check App" },
+    { "id": "rem-ai", "name": "REM" },
+    { "id": "other", "name": "Other project or app" }
   ],
   "requestTypes": [
     { "id": "help", "name": "Help using the app" },

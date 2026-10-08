@@ -14,10 +14,34 @@ const {
 const root = __dirname;
 const enProjects = JSON.parse(fs.readFileSync(path.join(root, "projects/projects.json"), "utf8"));
 const frProjects = JSON.parse(fs.readFileSync(path.join(root, "projects/projects.fr.json"), "utf8"));
+const supportOptions = JSON.parse(fs.readFileSync(path.join(root, "support/options.json"), "utf8"));
+
+const englishFinanceAi = enProjects.find(({ id }) => id === "finance-ai");
+const frenchFinanceAi = frProjects.find(({ id }) => id === "finance-ai");
+const financeAiScreenOrder = ["home.png", "accounts.png", "ask.png", "expenses.png", "goals.png"];
 
 validateProjects(enProjects, "English projects");
 validateProjects(frProjects, "French projects");
 assert.deepStrictEqual(frProjects.map(({ id }) => id), enProjects.map(({ id }) => id));
+assert.deepStrictEqual(
+  supportOptions.apps.filter(({ id }) => id !== "other").map(({ id }) => id),
+  enProjects.map(({ id }) => id),
+  "Support app choices must include every current project in project order"
+);
+assert.ok(englishFinanceAi, "English Finance AI project is missing");
+assert.ok(frenchFinanceAi, "French Finance AI project is missing");
+assert.strictEqual(englishFinanceAi.preview.type, "carousel");
+assert.strictEqual(englishFinanceAi.preview.layout, "mobile");
+assert.deepStrictEqual(
+  englishFinanceAi.preview.images.map(({ src }) => path.basename(src)),
+  financeAiScreenOrder,
+  "Finance AI screens must be ordered Home, Accounts, Ask, Expenses, Goals"
+);
+assert.deepStrictEqual(
+  frenchFinanceAi.preview.images.map(({ src }) => path.basename(src)),
+  financeAiScreenOrder,
+  "French Finance AI screens must match the English order"
+);
 
 for (const project of enProjects) {
   assert.strictEqual(typeof project.ogImage, "string", `${project.id} needs an ogImage`);
@@ -49,7 +73,7 @@ const frenchDarkenator = frProjects.find(({ id }) => id === "darkenator");
 
 assert.ok(fileDropHtml.includes('<meta property="og:title" content="FileDrop — Remy Moscovitz">'));
 assert.ok(fileDropHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/filedrop-banner.png">'));
-assert.ok(fileDropHtml.includes('<script src="/script.js?v=20260929-2" defer></script>'));
+assert.ok(fileDropHtml.includes('<script src="/script.js?v=20261009-1" defer></script>'));
 assert.ok(converterKingHtml.includes('<meta property="og:title" content="Converter King — Remy Moscovitz">'));
 assert.ok(converterKingHtml.includes('<meta property="og:image" content="https://remymoscovitz.com/media/projects/converter-king/converter-king-banner-v4.png">'));
 assert.strictEqual(englishConverterKing.preview.type, "carousel");
