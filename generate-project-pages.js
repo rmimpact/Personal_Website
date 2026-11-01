@@ -95,6 +95,11 @@ function renderPage({ lang, project, canonicalPath, alternatePath, nav, ogLocale
   const imageAlt = escapeHtml(metadata.imageAlt);
   const canonicalUrl = escapeHtml(metadata.canonicalUrl);
   const alternateUrl = `${SITE_URL}${alternatePath}`;
+  const icon = escapeHtml(
+    typeof project.icon === "string" && project.icon.trim()
+      ? project.icon.trim()
+      : "/media/rm_custom_icon.png"
+  );
 
   return `<!doctype html>
 <html lang="${lang}">
@@ -106,7 +111,7 @@ function renderPage({ lang, project, canonicalPath, alternatePath, nav, ogLocale
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="alternate" hreflang="${nav.altHreflang}" href="${alternateUrl}">
   <link rel="alternate" hreflang="x-default" href="${SITE_URL}/projects/${project.id}/">
-  <link rel="icon" href="/media/rm_custom_icon.png" type="image/png">
+  <link rel="icon" href="${icon}" type="image/png">
   <title>${title}</title>
 
   <meta property="og:type" content="website">
