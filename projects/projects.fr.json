@@ -343,7 +343,7 @@
     "imageAlt": "Icône et nom de Lab Support App sur une bannière bleu nuit",
     "ogImage": "/media/projects/lab-check-app/labs-app-banner.jpg",
     "cardImageScale": 1.6,
-    "summary": "Une application discrète qui aide un sup à organiser les contrôles, les notes et les tâches quotidiennes.",
+    "summary": "Une application opérationnelle qui aide un sup à organiser les contrôles, les notes et les tâches quotidiennes.",
     "description": "J’ai créé Lab Support App avec Microsoft Power Apps, beaucoup de Power Fx et un peu de JavaScript. Elle est reliée à des données cloud dans Dataverse et Excel afin de centraliser les enregistrements et les mises à jour du quotidien.\n\nElle simplifie et organise de nombreuses tâches quotidiennes gérées par un sup :).",
     "tags": ["Power Apps", "Power Fx", "Dataverse", "Excel", "JavaScript"],
     "preview": {
