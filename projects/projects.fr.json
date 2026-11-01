@@ -336,50 +336,50 @@
   {
     "id": "lab-check-app",
     "order": 7,
-    "title": "Labs Check App",
+    "title": "Lab Support App",
     "eyebrow": "Application opérationnelle low-code",
     "year": "2026",
     "image": "/media/projects/lab-check-app/labs-app-banner.jpg",
-    "imageAlt": "Icône et nom de Labs App sur une bannière bleu nuit",
+    "imageAlt": "Icône et nom de Lab Support App sur une bannière bleu nuit",
     "ogImage": "/media/projects/lab-check-app/labs-app-banner.jpg",
     "cardImageScale": 1.6,
     "summary": "Une application discrète qui aide un sup à organiser les contrôles, les notes et les tâches quotidiennes.",
-    "description": "J’ai créé Labs Check App avec Microsoft Power Apps, beaucoup de Power Fx et un peu de JavaScript. Elle est reliée à des données cloud dans Dataverse et Excel afin de centraliser les enregistrements et les mises à jour du quotidien.\n\nElle simplifie et organise de nombreuses tâches quotidiennes gérées par un sup :).",
+    "description": "J’ai créé Lab Support App avec Microsoft Power Apps, beaucoup de Power Fx et un peu de JavaScript. Elle est reliée à des données cloud dans Dataverse et Excel afin de centraliser les enregistrements et les mises à jour du quotidien.\n\nElle simplifie et organise de nombreuses tâches quotidiennes gérées par un sup :).",
     "tags": ["Power Apps", "Power Fx", "Dataverse", "Excel", "JavaScript"],
     "preview": {
       "type": "carousel",
       "images": [
         {
           "src": "/media/projects/lab-check-app/home-screen.jpg",
-          "alt": "Écran d’accueil de Labs Check App"
+          "alt": "Écran d’accueil de Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/cabinets-overview.jpg",
-          "alt": "Aperçu des armoires dans Labs Check App"
+          "alt": "Aperçu des armoires dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/cabinet-check.jpg",
-          "alt": "Contrôle du stock d’une armoire dans Labs Check App"
+          "alt": "Contrôle du stock d’une armoire dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/rooms.jpg",
-          "alt": "Contrôles des salles dans Labs Check App"
+          "alt": "Contrôles des salles dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/room-details.jpg",
-          "alt": "Détails d’une salle dans Labs Check App"
+          "alt": "Détails d’une salle dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/printers.jpg",
-          "alt": "Contrôles des imprimantes dans Labs Check App"
+          "alt": "Contrôles des imprimantes dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/notes.jpg",
-          "alt": "Aperçu des notes dans Labs Check App"
+          "alt": "Aperçu des notes dans Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/note-details.jpg",
-          "alt": "Éditeur de notes dans Labs Check App"
+          "alt": "Éditeur de notes dans Lab Support App"
         }
       ]
     },

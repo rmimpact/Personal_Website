@@ -336,50 +336,50 @@
   {
     "id": "lab-check-app",
     "order": 7,
-    "title": "Labs Check App",
+    "title": "Lab Support App",
     "eyebrow": "Low-code operations app",
     "year": "2026",
     "image": "/media/projects/lab-check-app/labs-app-banner.jpg",
-    "imageAlt": "Labs App icon and name on a dark navy banner",
+    "imageAlt": "Lab Support App icon and name on a dark navy banner",
     "ogImage": "/media/projects/lab-check-app/labs-app-banner.jpg",
     "cardImageScale": 1.6,
     "summary": "A low-key operations app that helps a sup keep daily checks, notes and routine tasks moving.",
-    "description": "I built Labs Check App with Microsoft Power Apps, using plenty of Power Fx and a small amount of JavaScript. It connects to cloud data through Dataverse and Excel, keeping everyday records and updates in one place.\n\nIt helps streamline and manage a lot of the daily tasks handled by a sup :).",
+    "description": "I built Lab Support App with Microsoft Power Apps, using plenty of Power Fx and a small amount of JavaScript. It connects to cloud data through Dataverse and Excel, keeping everyday records and updates in one place.\n\nIt helps streamline and manage a lot of the daily tasks handled by a sup :).",
     "tags": ["Power Apps", "Power Fx", "Dataverse", "Excel", "JavaScript"],
     "preview": {
       "type": "carousel",
       "images": [
         {
           "src": "/media/projects/lab-check-app/home-screen.jpg",
-          "alt": "Labs Check App home screen"
+          "alt": "Lab Support App home screen"
         },
         {
           "src": "/media/projects/lab-check-app/rooms.jpg",
-          "alt": "Room checks in Labs Check App"
+          "alt": "Room checks in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/cabinets-overview.jpg",
-          "alt": "Cabinet overview in Labs Check App"
+          "alt": "Cabinet overview in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/cabinet-check.jpg",
-          "alt": "Cabinet stock check in Labs Check App"
+          "alt": "Cabinet stock check in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/room-details.jpg",
-          "alt": "Room details in Labs Check App"
+          "alt": "Room details in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/printers.jpg",
-          "alt": "Printer checks in Labs Check App"
+          "alt": "Printer checks in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/notes.jpg",
-          "alt": "Notes overview in Labs Check App"
+          "alt": "Notes overview in Lab Support App"
         },
         {
           "src": "/media/projects/lab-check-app/note-details.jpg",
-          "alt": "Note editor in Labs Check App"
+          "alt": "Note editor in Lab Support App"
         }
       ]
     },

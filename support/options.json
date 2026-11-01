@@ -7,7 +7,12 @@
     { "id": "football-management-panel", "name": "Football Management Panel" },
     { "id": "filedrop", "name": "FileDrop" },
     { "id": "darkenator", "name": "Darkenator" },
-    { "id": "lab-check-app", "name": "Labs Check App" },
+    {
+      "id": "lab-check-app",
+      "name": "Lab Support App",
+      "aliases": ["lab-support-app", "labs-check-app", "labs-app", "lab support app"],
+      "privacyUrl": "/privacy/lab-support-app/"
+    },
     { "id": "rem-ai", "name": "REM" },
     { "id": "other", "name": "Other project or app" }
   ],
